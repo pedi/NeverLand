@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/admin/products/add", function(req, res, next) {
-  res.render('admin/add_product');
+  res.render('add_product', {cache : false});
 });
 
 router.get("/category/:sub_category_name/", function(req, res, next) {

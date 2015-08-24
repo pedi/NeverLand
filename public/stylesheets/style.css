@@ -1,8 +1,21 @@
+@font-face {
+  font-family : kalinga;
+  src : url(../fonts/kalinga.ttf);
+}
+@font-face {
+  font-family: kalinga;
+  src : url(../fonts/kalingab.ttf);
+  font-weight : bold;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: kalinga, Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+td input {
+  max-width : 100px;
+  margin-right : 12px;
 }
+
+/*input {*/
+  /*max-width : 100px;*/
+/*}*/

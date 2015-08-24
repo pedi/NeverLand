@@ -12,6 +12,10 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get("/admin/products/add", function(req, res, next) {
+  res.render('admin/add_product');
+});
+
 router.get("/category/:sub_category_name/", function(req, res, next) {
   var categoryName = req.params.sub_category_name;
   if (categoryName) {

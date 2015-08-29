@@ -7,22 +7,32 @@ var schema = new mongoose.Schema({
   name : {type : String, unique : true},
   category : {type: mongoose.Schema.Types.ObjectId, ref : "Category"},
   subcategory : {type: mongoose.Schema.Types.ObjectId, ref : "SubCategory"},
-  images : [Buffer],
+  images : [{
+    data : Buffer,
+    content_type : String
+  }],
   description : String,
   batch_ratio : Number, // ratio = normal_price / non_batch_price
   batch_threshold : Number, // if quantify below threshold, the price will be multiplied with batch_ratio
   delivery_time : Number, // in days
   download_link : String,
-  available_sizes_image : Buffer,
+  available_sizes_image : {
+    data : Buffer,
+    content_type : String
+  },
   models : [
     {
+      name : String,
       volume : Number,
-      fabrics : {type : mongoose.Schema.Types.ObjectId, ref : "Fabric"},
-      material : {type : mongoose.Schema.Types.ObjectId, ref : "Material"},
-      price : Number
+      fabrics_type : [String],
+      fabrics_price : [Number],
+      material_type : [String],
+      material_price : [Number]
     }
   ]
 }, {
   autoIndex : false
 });
-var model = mongoose.model("Category", schema);
+var model = mongoose.model("Product", schema);
+
+module.exports = model;

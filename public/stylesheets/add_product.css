@@ -1,0 +1,26 @@
+#upload-images-preview img{
+    max-width : 320px;
+    padding-right : 12px;
+}
+.price-group-row {
+    margin-top :14px;
+}
+
+.price-group-row .col-xs-1:first-child {
+    position :relative;
+    top : 7px;
+}
+
+label[for=checkbox-fabrics] h3 {
+    font-size : 150%;
+    display : inline-block;
+}
+
+label[for=checkbox-material] h3 {
+    font-size : 150%;
+    display : inline-block;
+}
+
+label[for=input-price-ratio] {
+    margin-top : 14px;
+}

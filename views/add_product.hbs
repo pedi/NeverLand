@@ -1,4 +1,4 @@
-<form class="container">
+<form class="container dropzone">
     <div class="form-group">
         <label for="input-product-name">Product Name</label>
         <input type="text" class="form-control" id="input-product-name" placeholder="name">
@@ -6,12 +6,25 @@
     <div class="form-group">
         <label for="select-category">Category</label>
         <select id="select-category" class="form-control">
-            <option value="sofa">sofa</option>
+            {{#each categories}}
+                <option value="{{this._id}}" data-subcategories="">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="select-sub-category">SubCategory</label>
+        <select id="select-sub-category" class="form-control">
+            {{#each categories.0.subcategories}}
+                <option value="{{this._id}}" data-subcategories="">{{this.name}}</option>
+            {{/each}}
         </select>
     </div>
     <div class="form-group">
         <label for="input-upload-images">Upload Images</label>
         <input type="file" id="input-upload-images" class="form-control" multiple>
+    </div>
+    <div id="upload-images-preview">
+
     </div>
     <div class="form-group">
         <label for="textarea-description">Description</label>
@@ -19,21 +32,101 @@
     </div>
     <div class="form-group">
         <label for="checkbox-fabrics">
-            Build Your Own A
+            <h3>Build Your Own A</h3>
             <input type="checkbox" id="checkbox-fabrics">
         </label>
     </div>
-    <div class="row">
-        <div class="col-xs-1 col-xs-offset-3">VOL</div>
-        <div class="col-xs-1">Price/LLL</div>
-        <div class="col-xs-1">Price/LL</div>
-        <div class="col-xs-1">Price/L</div>
-        <div class="col-xs-1">Price/M</div>
-        <div class="col-xs-1">Price/H</div>
-        <div class="col-xs-1">Price/HH</div>
-        <div class="col-xs-1">Price/HHH</div>
+    <div id="price-group-a">
+        <div class="row">
+            <div class="col-xs-1 col-xs-offset-1">
+                <button id="btn-add-price-group-a" class="btn btn-default">Add</button>
+            </div>
+            <div class="col-xs-1 col-xs-offset-1">VOL</div>
+            <div class="col-xs-1">Price/LLL</div>
+            <div class="col-xs-1">Price/LL</div>
+            <div class="col-xs-1">Price/L</div>
+            <div class="col-xs-1">Price/M</div>
+            <div class="col-xs-1">Price/H</div>
+            <div class="col-xs-1">Price/HH</div>
+            <div class="col-xs-1">Price/HHH</div>
+        </div>
+        <div id="price-group-a-wrapper">
+
+        </div>
+        <div class="form-group">
+            <label for="input-price-ratio">Price Ratio</label>
+            <div class="input-group">
+                <div class="input-group-addon">Quantity 4-7 / Quantity >7 =</div>
+                <input type="tel" name="input-price-ratio" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Delivery Time:</div>
+                <input type="number" name="input-delivery-time" class="form-control">
+                <div class="input-group-addon">Days</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Download Link: </div>
+                <input type="tel" name="input-download-link" class="form-control">
+            </div>
+        </div>
     </div>
-    <div class="row">
+
+    <div class="form-group">
+        <label for="checkbox-material">
+            <h3>Build Your Own B</h3>
+            <input type="checkbox" id="checkbox-material">
+        </label>
+    </div>
+    <div id="price-group-b">
+        <div class="row">
+            <div class="col-xs-1 col-xs-offset-1">
+                <button id="btn-add-price-group-b" class="btn btn-default">Add</button>
+            </div>
+            <div class="col-xs-1 col-xs-offset-1">VOL</div>
+            <div class="col-xs-1">Oak</div>
+            <div class="col-xs-1">ELM</div>
+            <div class="col-xs-1">Pine</div>
+        </div>
+        <div id="price-group-b-wrapper">
+
+        </div>
+        <div class="form-group">
+            <label for="input-price-ratio">Price Ratio</label>
+            <div class="input-group">
+                <div class="input-group-addon">Quantity 4-7 / Quantity >7 =</div>
+                <input type="tel" name="input-price-ratio" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Delivery Time:</div>
+                <input type="number" name="input-delivery-time" class="form-control">
+                <div class="input-group-addon">Days</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">Download Link: </div>
+                <input type="tel" name="input-download-link" class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="input-available-sizes">Available Sizes</label>
+        <input type="file" id="input-available-sizes" class="form-control">
+    </div>
+    <div id="available-sizes-preview"></div>
+
+    <button id="btn-submit" class="btn btn-primary btn-block">Add Product</button>
+</form>
+
+<script type="text/template" id="price-group-a-template">
+    <div class="row price-group-row">
         <div class="col-xs-1">Size</div>
         <div class="col-xs-2"><input type="text" class="input-model-name form-control"></div>
         <div class="col-xs-1"><input type="text" class="input-volume form-control"></div>
@@ -44,30 +137,27 @@
         <div class="col-xs-1"><input type="text" class="input-price-h form-control"></div>
         <div class="col-xs-1"><input type="text" class="input-price-hh form-control"></div>
         <div class="col-xs-1"><input type="text" class="input-price-hhh form-control"></div>
-    </div>
-    <div class="form-group">
-        <label for="input-price-ratio">Price Ratio</label>
-        <div class="input-group">
-            <div class="input-group-addon">Quantity 4-7 / Quantity >7 =</div>
-            <input type="tel" id="input-price-ratio" class="form-control">
+        <div class="col-xs-1">
+            <button class="btn-delete-price-group btn btn-default">Delete</button>
         </div>
     </div>
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-addon">Delivery Time:</div>
-            <input type="tel" id="input-delivery-time" class="form-control">
-            <div class="input-group-addon">Days</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-addon">Download Link: </div>
-            <input type="tel" id="input-download-link" class="form-control">
-        </div>
-    </div>
+</script>
 
-</form>
+<script type="text/template" id="price-group-b-template">
+    <div class="row price-group-row">
+        <div class="col-xs-1">Size</div>
+        <div class="col-xs-2"><input type="text" class="input-model-name form-control"></div>
+        <div class="col-xs-1"><input type="text" class="input-volume form-control"></div>
+        <div class="col-xs-1"><input type="text" class="input-price-oak form-control"></div>
+        <div class="col-xs-1"><input type="text" class="input-price-elm form-control"></div>
+        <div class="col-xs-1"><input type="text" class="input-price-pine form-control"></div>
+        <div class="col-xs-1">
+            <button class="btn-delete-price-group btn btn-default">Delete</button>
+        </div>
+    </div>
+</script>
 
+<script type="text/javascript" src="/javascripts/add_product.js"></script>
 
 
 

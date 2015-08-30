@@ -1,0 +1,16 @@
+.product-container {
+  max-width: 720px; }
+  .product-container hr {
+    border-top-color: darkgrey; }
+  .product-container .img_available_sizes {
+    max-width: 100%; }
+  .product-container span.navy-blue {
+    color: #337ab7; }
+
+.swiper-container .swiper-slide img {
+  width: 100%; }
+
+p {
+  white-space: pre-wrap; }
+
+/*# sourceMappingURL=product.css.map */

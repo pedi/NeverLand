@@ -1,0 +1,20 @@
+<div class="container">
+    <a href="/admin/products/add/" class="btn btn-primary">Add New</a>
+    <section class="products-wrapper row">
+        {{#each products}}
+            <div class="product-wrapper col-xs-12 col-md-4" data-product-id="{{this._id}}">
+                <a href="/products/{{this._id}}/">{{this.name}}
+                    <img src="/{{this.images.0.path}}">
+                </a>
+
+                <button class="btn btn-primary btn-delete-product">Delete</button>
+            </div>
+        {{/each}}
+    </section>
+</div>
+
+
+<script type="text/javascript" src="/javascripts/admin_products.js"></script>
+
+
+

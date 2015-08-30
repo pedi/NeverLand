@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

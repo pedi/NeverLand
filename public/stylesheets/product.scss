@@ -1,0 +1,22 @@
+.product-container {
+  max-width : 720px;
+  hr {
+    border-top-color : darkgrey;
+  }
+  .img_available_sizes {
+    max-width : 100%;
+  }
+  span.navy-blue {
+    color : #337ab7;
+  }
+}
+.swiper-container {
+  .swiper-slide {
+    img {
+      width : 100%;
+    }
+  }
+}
+p {
+  white-space: pre-wrap;
+}

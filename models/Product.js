@@ -8,7 +8,7 @@ var schema = new mongoose.Schema({
   category : {type: mongoose.Schema.Types.ObjectId, ref : "Category"},
   subcategory : {type: mongoose.Schema.Types.ObjectId, ref : "SubCategory"},
   images : [{
-    data : Buffer,
+    path : String,
     content_type : String
   }],
   description : String,
@@ -17,7 +17,7 @@ var schema = new mongoose.Schema({
   delivery_time : Number, // in days
   download_link : String,
   available_sizes_image : {
-    data : Buffer,
+    path : String,
     content_type : String
   },
   models : [

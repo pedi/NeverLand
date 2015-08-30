@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 //var formidable = require("formidable");
 var multer  = require('multer');
 var fs = require("fs");
-var upload = multer({ dest: 'uploads/' });
+var upload = multer({ dest: 'images/' });
 var router = express.Router();
 
 /* GET home page. */
@@ -16,10 +16,72 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get("/admin/products/", function(req, res, next) {
+  Product.find().exec(function(err, products) {
+    if (!err) {
+      res.render("admin_products", { products : products});
+    } else {
+      next(err);
+    }
+  })
+});
+
 router.get("/admin/products/add/", function(req, res, next) {
   Category.find().populate({path : "subcategories"}).exec(function(err, categories) {
+    // preprocess categories
+    for (var i=0; i<categories.length; i++) {
+      var category = categories[i];
+      category.subcat = [];
+      for (var j=0; j<category.subcategories.length; j++) {
+        var subcat = category.subcategories[j];
+        category.subcat.push({
+          id : subcat._id,
+          name : subcat.name
+        })
+      }
+      category.subcat= JSON.stringify(category.subcat);
+    }
     res.render('add_product', { categories : categories });
   });
+});
+
+router.post("/products/:id/delete/", function(req, res, next) {
+  var id = req.params.id;
+  Product.findByIdAndRemove(id, function(error) {
+    if (!error) {
+      res.json({"success" : true});
+    } else {
+      next(error);
+    }
+  })
+});
+
+router.get("/products/:id/", function(req, res, next) {
+  var id = req.params.id;
+  Product.findById(id, function(error, product) {
+    if (!error) {
+      // preprocess price groups
+      for (var i=0; i<product.models.length; i++) {
+        var model = product.models[i];
+        model.fabrics = [];
+        if (model.fabrics_type) {
+          for (var j=0; j<model.fabrics_type.length; j++) {
+            model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
+          }
+          model.fabrics = JSON.stringify(model.fabrics);
+        }
+        if (model.material_type) {
+          for (var j=0; j<model.material_type.length; j++) {
+            model.materials.push({type : model.material_type[j], price : model.material_price[j]});
+          }
+          model.materials = JSON.stringify(model.materials);
+        }
+      }
+      res.render("product", {product : product});
+    } else {
+      next(error);
+    }
+  })
 });
 
 var productUpload = upload.fields([
@@ -34,9 +96,8 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
   product.subcategory = mongoose.Schema.Types.ObjectId(req.body.sub_catid);
   var images = req.files["images[]"];
   for (var i=0; i<images.length; i++) {
-    var rawImage = fs.readFileSync(images[i].path);
     product.images.push({
-      data : rawImage,
+      path : images[i].path,
       content_type : images[i].mimetype
     });
   }
@@ -47,7 +108,7 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
   product.download_link = req.body.price_group_download;
   var availableSizeImage = req.files["available_size_image"];
   product.available_sizes_image = {
-    data : fs.readFileSync(availableSizeImage[0].path),
+    path : availableSizeImage[0].path,
     content_type : availableSizeImage[0].mimetype
   };
 
@@ -73,7 +134,7 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
       for (var k=0; k<price_groups.length; k++) {
         model.fabrics_type.push(price_groups[k][1]);
         var fabric = {
-          type : price_groups[k][1],
+          type : price_groups[k][1]
         };
         var price = parseFloat(req.body[price_groups[k][0]][j]);
         if (!isNaN(price))
@@ -114,7 +175,9 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
   product.save(function(err, product) {
     if (!err) {
       console.log(product);
-      res.json(product);
+      res.json({
+        "success" : true
+      });
     } else {
       next(err);
     }

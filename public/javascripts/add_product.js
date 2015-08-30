@@ -24,6 +24,22 @@ function initDom() {
     }
   });
 
+  $("#select-category").on("change", function(e) {
+    var subcat = $("#select-category").find(":selected").attr("data-subcategories");
+    if (subcat) {
+      subcat = JSON.parse(subcat);
+      $("#select-sub-category").empty();
+      for (var i=0; i<subcat.length; i++) {
+        var option = document.createElement("option");
+        option.value = subcat[i].id;
+        option.innerHTML = subcat[i].name;
+        $("#select-sub-category").append(option);
+      }
+    }
+  });
+  $("#select-category").trigger("change");
+
+
   $("#input-available-sizes").on("change", function(e) {
     var files = e.target.files;
     if (files && files[0]) {

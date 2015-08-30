@@ -1,0 +1,57 @@
+<!-- Slider main container -->
+<div class="container product-container">
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {{#each product.images}}
+                <div class="swiper-slide">
+                    <img src="/{{this.path}}">
+                </div>
+            {{/each}}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <h1 class="h3">{{product.name}}</h1>
+    <p>{{{product.description}}}</p>
+    <hr>
+    <h2 class="h4">Build Your Own</h2>
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div>Size</div>
+            <select id="select-model">
+                {{#each product.models}}
+                    {{#if this.fabrics}}
+                        <option value="{{this.fabrics}}">{{this.name}}</option>
+                    {{else}}
+                        <option value="{{this.materials}}">{{this.name}}</option>
+                    {{/if}}
+
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div>Finishes</div>
+            <select id="select-finishes"></select>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div>Quantity</div>
+            <select id="select-quantity">
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div>FOB Ningbo price/PC: <span class="navy-blue"><span id="span-price">200</span> US$</span></div>
+    <div>VOL/PC: <span class="navy-blue"><span>2</span> CBM</span></div>
+    <div>Delivery Time: <span class="navy-blue">{{product.delivery_time}} days</span></div>
+    <br>
+    <div>*Any alternation is subject to the final PI we send to you.</div>
+    <div>*<a target="_blank" href="{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
+    <hr>
+    <h2 class="h4">Available Sizes</h2>
+    <img class="img_available_sizes" src="/{{product.available_sizes_image.path}}">
+</div>
+
+<script type="text/javascript" src="/javascripts/product.js"></script>

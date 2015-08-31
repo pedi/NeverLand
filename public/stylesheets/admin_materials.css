@@ -1,0 +1,17 @@
+.material-card-wrapper {
+  padding-right: 12px;
+  padding-left: 0; }
+  .material-card-wrapper .material-card {
+    background-size: cover;
+    background-position: center; }
+    .material-card-wrapper .material-card .dummy {
+      padding-top: 100%; }
+  .material-card-wrapper .material-name {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .material-card-wrapper .material-group {
+    font-weight: bold; }
+
+/*# sourceMappingURL=admin_materials.css.map */

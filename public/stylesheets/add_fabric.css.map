@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,uDAAI;EACF,KAAK,EAAG,IAAI",
+"sources": ["add_fabric.scss"],
+"names": [],
+"file": "add_fabric.css"
+}

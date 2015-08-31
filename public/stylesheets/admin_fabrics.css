@@ -1,0 +1,17 @@
+.fabric-card-wrapper {
+  padding-right: 12px;
+  padding-left: 0; }
+  .fabric-card-wrapper .fabric-card {
+    background-size: cover;
+    background-position: center; }
+    .fabric-card-wrapper .fabric-card .dummy {
+      padding-top: 100%; }
+  .fabric-card-wrapper .fabric-name {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .fabric-card-wrapper .price-group {
+    font-weight: bold; }
+
+/*# sourceMappingURL=admin_fabrics.css.map */

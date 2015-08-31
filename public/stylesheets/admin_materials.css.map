@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,sBAAuB;EACrB,aAAa,EAAG,IAAI;EACpB,YAAY,EAAG,CAAC;EAChB,qCAAe;IAIb,eAAe,EAAG,KAAK;IACvB,mBAAmB,EAAG,MAAM;IAJ5B,4CAAO;MACL,WAAW,EAAG,IAAI;EAKtB,qCAAe;IACb,SAAS,EAAG,IAAI;IAChB,QAAQ,EAAG,MAAM;IACjB,aAAa,EAAG,QAAQ;IACxB,WAAW,EAAE,MAAM;EAErB,sCAAgB;IACd,WAAW,EAAG,IAAI",
+"sources": ["admin_materials.scss"],
+"names": [],
+"file": "admin_materials.css"
+}

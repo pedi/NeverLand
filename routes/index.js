@@ -9,6 +9,7 @@ var multer  = require('multer');
 var fs = require("fs");
 var upload = multer({ dest: 'images/' });
 var router = express.Router();
+var _ = require("underscore");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -183,6 +184,20 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
       next(err);
     }
   });
+});
+
+router.get("/admin/fabrics/", function(req, res, next) {
+  Fabric.find().exec(function(error, fabrics) {
+    if (!error) {
+      var fabricsByType = _.groupBy(fabrics, function(fabric) {
+        return fabric.type;
+      });
+      res.render("admin_fabrics", {});
+    } else {
+      next(error);
+    }
+
+  })
 });
 
 router.get("/admin/fabrics/add/", function(req, res, next) {

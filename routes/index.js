@@ -2,6 +2,7 @@ var express = require('express');
 var SubCategory = require("../models/SubCategory");
 var Category = require("../models/Category");
 var Product = require("../models/Product");
+var Fabric = require("../models/Fabric");
 var mongoose = require("mongoose");
 //var formidable = require("formidable");
 var multer  = require('multer');
@@ -180,6 +181,31 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
       });
     } else {
       next(err);
+    }
+  });
+});
+
+router.get("/admin/fabrics/add/", function(req, res, next) {
+  res.render("add_fabric", {});
+});
+
+router.post("/admin/fabrics/add/", upload.single('image'), function(req, res, next) {
+  var image = req.files.image;
+  var fabric = new Fabric();
+  fabric.name = req.body.name;
+  fabric.price_group = req.body.price_group;
+  fabric.type = req.body.type;
+  fabric.image = {
+    path : image.path,
+    content_type : image.mimetype
+  };
+  fabric.save(function(err, fabric) {
+    if (!error) {
+      res.json({
+        success : true
+      })
+    } else {
+      next(error);
     }
   });
 });

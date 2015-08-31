@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/NeverLand/fabrics.bson" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/NeverLand/materials.bson" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/add_fabric.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/add_fabric.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/admin_fabrics.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/admin_fabrics.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/admin_materials.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/admin_materials.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/NeverLand/fabrics.metadata.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/NeverLand/materials.metadata.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/product.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/NeverLand/products.bson" afterPath="$PROJECT_DIR$/db/NeverLand/products.bson" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/NeverLand/system.indexes.bson" afterPath="$PROJECT_DIR$/db/NeverLand/system.indexes.bson" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/2b37116ba1eccc738adcbba7c5ce2731" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/3d76db39c69e36bccaf3ceec8b858410" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/55ac129745928ef312d05fcf441d8b73" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/5bf5642a042665938eacbbba71b62328" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/95a27b6e21d4b02cf445105a09a58ff9" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/a05fbced878339bdc251deddfba37b63" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/a43d260d6ecaf0628f5a9ab1ecd0484a" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/bd54c1e815ea5a1f5c913bef9c7c6e13" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ccd4090f8c708b48f5d5e7dfd4f604e2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cd66cc4d95533e07b1ef2a36c0b6393e" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NeverLand.iws" />
@@ -41,8 +38,8 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.62211984">
-                  <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
+                <state vertical-scroll-proportion="0.4562212">
+                  <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -480,6 +477,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NeverLand" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NeverLand" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -617,7 +628,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441036705665</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add mongo db dump and missing css">
+      <created>1441036820705</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1441036820705</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -665,7 +682,8 @@
     <MESSAGE value="finish implement add product page, pending test" />
     <MESSAGE value="finish test add fabrics" />
     <MESSAGE value="finish implement fabrics and oak" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish implement fabrics and oak" />
+    <MESSAGE value="add mongo db dump and missing css" />
+    <option name="LAST_COMMIT_MESSAGE" value="add mongo db dump and missing css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1123,8 +1141,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62211984">
-          <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.4562212">
+          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
           <folding />
         </state>
       </provider>

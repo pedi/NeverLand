@@ -57,11 +57,11 @@
                     if (!e.error) {
                         window.location.href = "/admin/fabrics/";
                     } else {
-                        alert("failed to create new fabrics, possible reason could be images files too large?");
+                        alert("failed to create new fabrics");
                     }
                 }
             }).fail(function(e) {
-                alert("failed to create new product");
+                alert("failed to create new fabric");
             })
         })
     }

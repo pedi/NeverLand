@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Materials</h1>
+    <a href="/admin/materials/add/" class="btn btn-default">Add New</a>
+</div>
+{{#each materialGroups}}
+    <div class="container">
+        <h2>{{@key}}</h2>
+        {{#each this}}<div class="col-xs-4 cold-md-3 material-card-wrapper"
+                           data-material-id="{{this._id}}">
+            <div class="material-card" style="background-image:url(/{{this.image.path}})">
+                <div class="dummy"></div>
+            </div>
+            <div class="material-name">{{this.name}}</div>
+            <div><button class="btn btn-default btn-delete-material">Delete</button></div>
+        </div>{{/each}}
+    </div>
+{{/each}}
+<script type="text/javascript" src="/javascripts/admin_materials.js"></script>

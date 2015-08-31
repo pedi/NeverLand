@@ -1,0 +1,20 @@
+
+<div class="container">
+    <h1>Fabrics</h1>
+    <a href="/admin/fabrics/add/" class="btn btn-default">Add New</a>
+</div>
+{{#each fabricGroups}}
+    <div class="container">
+        <h2>{{@key}}</h2>
+        {{#each this}}<div class="col-xs-4 cold-md-3 fabric-card-wrapper"
+                data-fabric-id="{{this._id}}">
+            <div class="fabric-card" style="background-image:url(/{{this.image.path}})">
+                <div class="dummy"></div>
+            </div>
+            <div class="fabric-name">{{this.name}}</div>
+            <div class="price-group">Price Group: {{this.price_group}}</div>
+            <div><button class="btn btn-default btn-delete-fabric">Delete</button></div>
+        </div>{{/each}}
+    </div>
+{{/each}}
+<script type="text/javascript" src="/javascripts/admin_fabrics.js"></script>

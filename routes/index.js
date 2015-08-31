@@ -3,6 +3,7 @@ var SubCategory = require("../models/SubCategory");
 var Category = require("../models/Category");
 var Product = require("../models/Product");
 var Fabric = require("../models/Fabric");
+var Material = require("../models/Material");
 var mongoose = require("mongoose");
 //var formidable = require("formidable");
 var multer  = require('multer');
@@ -65,21 +66,52 @@ router.get("/products/:id/", function(req, res, next) {
       // preprocess price groups
       for (var i=0; i<product.models.length; i++) {
         var model = product.models[i];
-        model.fabrics = [];
-        if (model.fabrics_type) {
+        if (model.fabrics_type && model.fabrics_price.length > 0) {
+          model.fabrics = [];
+          var fabricGroup = [];
           for (var j=0; j<model.fabrics_type.length; j++) {
             model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
+            if (model.fabrics_price[j] != -1) {
+              fabricGroup.push(model.fabrics_type[j]);
+            }
           }
           model.fabrics = JSON.stringify(model.fabrics);
+          // get related model fabrics data
+          Fabric.find({
+            price_group : { $in : fabricGroup}
+          }).exec(function(error, fabrics) {
+            if (!error) {
+              var fabricGroups = _.groupBy(fabrics, function(fabric) {
+                return fabric.type;
+              });
+              res.render("product", {product : product, fabricGroups:fabricGroups});
+            } else {next(error);}
+          })
         }
-        if (model.material_type) {
+        if (model.material_type && model.material_price.length > 0) {
+          model.materials = [];
+          var materialGroup = [];
           for (var j=0; j<model.material_type.length; j++) {
             model.materials.push({type : model.material_type[j], price : model.material_price[j]});
+            if (model.material_price[j] != -1) {
+              materialGroup.push(model.material_type[j]);
+            }
           }
           model.materials = JSON.stringify(model.materials);
+          //res.render("product", {product : product});
+          // get related model fabrics data
+          Material.find({
+            price_group : { $in : materialGroup}
+          }).exec(function(error, materials) {
+            if (!error) {
+              var materialGroups = _.groupBy(materials, function(material) {
+                return material.price_group;
+              });
+              res.render("product", {product : product, materialGroups:materialGroups});
+            } else {next(error);}
+          })
         }
       }
-      res.render("product", {product : product});
     } else {
       next(error);
     }
@@ -189,10 +221,12 @@ router.post("/admin/products/add/", productUpload, function(req, res, next) {
 router.get("/admin/fabrics/", function(req, res, next) {
   Fabric.find().exec(function(error, fabrics) {
     if (!error) {
-      var fabricsByType = _.groupBy(fabrics, function(fabric) {
+      var fabricGroups = _.groupBy(fabrics, function(fabric) {
         return fabric.type;
       });
-      res.render("admin_fabrics", {});
+      res.render("admin_fabrics", {
+        fabricGroups : fabricGroups
+      });
     } else {
       next(error);
     }
@@ -202,6 +236,17 @@ router.get("/admin/fabrics/", function(req, res, next) {
 
 router.get("/admin/fabrics/add/", function(req, res, next) {
   res.render("add_fabric", {});
+});
+
+router.post("/fabrics/:id/delete/", function(req, res, next) {
+  var id = req.params.id;
+  Fabric.findByIdAndRemove(id, function(error) {
+    if (!error) {
+      res.json({"success" : true});
+    } else {
+      next(error);
+    }
+  })
 });
 
 router.post("/admin/fabrics/add/", upload.single('image'), function(req, res, next) {
@@ -223,6 +268,56 @@ router.post("/admin/fabrics/add/", upload.single('image'), function(req, res, ne
       next(error);
     }
   });
+});
+
+router.get("/admin/materials/", function(req, res, next) {
+  Material.find().exec(function(error, fabrics) {
+    if (!error) {
+      var materialGroups = _.groupBy(fabrics, function(fabric) {
+        return fabric.price_group;
+      });
+      res.render("admin_materials", {
+        materialGroups : materialGroups
+      });
+    } else {
+      next(error);
+    }
+  })
+});
+
+router.get("/admin/materials/add/", function(req, res, next) {
+  res.render("add_material", {});
+});
+
+router.post("/admin/materials/add/", upload.single('image'), function(req, res, next) {
+  var image = req.file;
+  var material = new Material();
+  material.name = req.body.name;
+  material.price_group = req.body.price_group;
+  material.image = {
+    path : image.path,
+    content_type : image.mimetype
+  };
+  material.save(function(error, material) {
+    if (!error) {
+      res.json({
+        success : true
+      })
+    } else {
+      next(error);
+    }
+  });
+});
+
+router.post("/materials/:id/delete/", function(req, res, next) {
+  var id = req.params.id;
+  Material.findByIdAndRemove(id, function(error) {
+    if (!error) {
+      res.json({"success" : true});
+    } else {
+      next(error);
+    }
+  })
 });
 
 router.get("/category/:sub_category_name/", function(req, res, next) {

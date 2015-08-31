@@ -260,7 +260,7 @@ function initDom() {
       processData : false,
       success : function(e) {
         if (!e.error) {
-          window.location.href = "/admin/products";
+          window.location.href = "/admin/products/";
         } else {
           alert("failed to create new products, possible reason could be images files too large?");
         }

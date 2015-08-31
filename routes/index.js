@@ -190,7 +190,7 @@ router.get("/admin/fabrics/add/", function(req, res, next) {
 });
 
 router.post("/admin/fabrics/add/", upload.single('image'), function(req, res, next) {
-  var image = req.files.image;
+  var image = req.file;
   var fabric = new Fabric();
   fabric.name = req.body.name;
   fabric.price_group = req.body.price_group;
@@ -199,7 +199,7 @@ router.post("/admin/fabrics/add/", upload.single('image'), function(req, res, ne
     path : image.path,
     content_type : image.mimetype
   };
-  fabric.save(function(err, fabric) {
+  fabric.save(function(error, fabric) {
     if (!error) {
       res.json({
         success : true

@@ -23,5 +23,46 @@
                 });
             }
         });
+
+        $("#btn-add-new-fabric").on("click", function(e) {
+            var formData = new FormData();
+            var images = $("input[name=upload-image]")[0].files;
+            if (!(images && images[0])) {
+                alert("please choose fabric images");
+                return false;
+            } else {
+                formData.append("image", images[0]);
+            }
+            var type = $("select[name=fabrics-type]").find(":selected").val();
+            formData.append("type", type);
+            var name = $("input[name=fabrics-name]").val();
+            if (!name) {
+                alert("please enter fabric name");
+                return false;
+            } else {
+                formData.append("name", name);
+            }
+            var priceGroup = $("select[name=fabrics-price-group]").find(":selected").val();
+            formData.append("price_group", priceGroup);
+
+            // all ready, begin upload
+            $.ajax({
+                url : "/admin/fabrics/add/",
+                type : "POST",
+                data : formData,
+                contentType : false,
+                cache : false,
+                processData : false,
+                success : function(e) {
+                    if (!e.error) {
+                        window.location.href = "/admin/fabrics/";
+                    } else {
+                        alert("failed to create new fabrics, possible reason could be images files too large?");
+                    }
+                }
+            }).fail(function(e) {
+                alert("failed to create new product");
+            })
+        })
     }
 })();

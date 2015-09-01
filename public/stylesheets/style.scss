@@ -1,0 +1,31 @@
+@import "layout";
+@import "add_banner";
+body {
+  margin-top : 60px;
+}
+.container {
+  max-width : 960px;
+}
+@font-face {
+  font-family : kalinga;
+  src : url(../fonts/kalinga.ttf);
+}
+@font-face {
+  font-family: kalinga;
+  src : url(../fonts/kalingab.ttf);
+  font-weight : bold;
+}
+body {
+  font-family: kalinga, Helvetica, Arial, sans-serif;
+}
+
+.swiper-pagination-bullet {
+  opacity : 1;
+  width : 10px;
+  height : 10px;
+  background-color : transparent;
+  border : 2px solid white;
+}
+.swiper-pagination-bullet-active {
+  background-color : white;
+}

@@ -1,13 +1,14 @@
-<ul>
-    {{#each categories}}
-        <li>
-            {{this.name}}
-            <ul>
-                {{#each this.subcategories}}
-                    <a href="/category/{{this.name}}"><li>{{this.name}}</li></a>
-                {{/each}}
-            </ul>
-        </li>
-    {{/each}}
-
-</ul>
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        {{#each banners}}
+            <div class="swiper-slide">
+                <img src="/{{this.image.path}}">
+            </div>
+        {{/each}}
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<script type="text/javascript" src="/javascripts/index.js"></script>

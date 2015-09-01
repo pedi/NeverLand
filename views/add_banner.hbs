@@ -1,0 +1,19 @@
+<div>
+    <h1>Banners</h1>
+    <div class="banner-images">
+        {{#each banners}}<div class="col-xs-4 banner-wrapper">
+            <img src="/{{this.image.path}}">
+            <button class="btn btn-default btn-delete-banner" data-banner-id="{{this._id}}">Remove</button>
+        </div>{{/each}}
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-group">
+        <label for="upload-images">Upload Images</label>
+        <input class="form-control" name="upload-images" type="file" accept="image/*" multiple>
+    </div>
+    <div class="banners-image-preview">
+
+    </div>
+    <button id="btn-add-new-banners" class="btn btn-primary btn-block">Submit</button>
+</div>
+<script type="text/javascript" src="/javascripts/add_banner.js"></script>

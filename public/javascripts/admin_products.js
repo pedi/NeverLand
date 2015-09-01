@@ -10,7 +10,7 @@ function initDom() {
     e.preventDefault();
     var btn = $(e.currentTarget);
     var productId = btn.closest(".product-wrapper").attr("data-product-id");
-    var url = "/products/"+productId+"/delete/";
+    var url = "/admin/products/"+productId+"/delete/";
     $.post(url, function(e) {
       if (!e.error) {
         btn.closest(".product-wrapper").remove();

@@ -10,7 +10,7 @@ function initDom() {
     e.preventDefault();
     var btn = $(e.currentTarget);
     var fabricId = btn.closest(".fabric-card-wrapper").attr("data-fabric-id");
-    var url = "/fabrics/"+fabricId+"/delete/";
+    var url = "/admin/fabrics/"+fabricId+"/delete/";
     $.post(url, function(e) {
       if (!e.error) {
         btn.closest(".fabric-card-wrapper").remove();

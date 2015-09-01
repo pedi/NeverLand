@@ -58,7 +58,7 @@ router.post("/add/", productUpload, function(req, res, next) {
   }
   product.description = req.body.description;
   product.batch_ratio = parseFloat(req.body.price_group_ratio);
-  product.batch_threshold = 7;
+  product.batch_threshold = 10;
   product.delivery_time = parseInt(req.body.price_group_delivery);
   product.download_link = req.body.price_group_download;
   var availableSizeImage = req.files["available_size_image"];
@@ -70,13 +70,13 @@ router.post("/add/", productUpload, function(req, res, next) {
   if (req.body.price_group == "a") {
     // fabric types
     var price_groups = [
-      ["price_group_lll", "lll"],
-      ["price_group_ll", "ll"],
-      ["price_group_l", "l"],
-      ["price_group_m", "m"],
-      ["price_group_h", "h"],
-      ["price_group_hh", "hh"],
-      ["price_group_hhh", "hhh"]
+      ["price_group_lll", "LLL"],
+      ["price_group_ll", "LL"],
+      ["price_group_l", "L"],
+      ["price_group_m", "M"],
+      ["price_group_h", "H"],
+      ["price_group_hh", "HH"],
+      ["price_group_hhh", "HHH"]
     ];
     for (var j=0; j<req.body['price_group_name'].length; j++) {
       var model = {

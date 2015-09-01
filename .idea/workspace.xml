@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="remove .idea">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/banners/12f1d7ad325c3fa609176c4e21a353f0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/banners/3a3b3bfb7cbcd5efd3766f04d842ca9e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/banners/5498ae98be84eeff2047316f034da679" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/banners/a56b2f9e0d22a1645102ebdde002d33f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/NeverLand/banners.bson" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/banners/f321231e0f0ac07512fedca4218aa644" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/Banner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/add_banner.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/add_banner.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/add_banner.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/add_banner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/add_banner.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/admin/banner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/NeverLand/banners.metadata.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/admin/fabrics.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/admin/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/layout.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/layout.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/layout.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/admin/material.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/lib/navbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/admin/product.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/style.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/NeverLand/system.indexes.bson" afterPath="$PROJECT_DIR$/db/NeverLand/system.indexes.bson" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/admin_fabrics.js" afterPath="$PROJECT_DIR$/public/javascripts/admin_fabrics.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/admin_materials.js" afterPath="$PROJECT_DIR$/public/javascripts/admin_materials.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/admin_products.js" afterPath="$PROJECT_DIR$/public/javascripts/admin_products.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.hbs" afterPath="$PROJECT_DIR$/views/index.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.hbs" afterPath="$PROJECT_DIR$/views/layout.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
+    <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/add_fabric.hbs" afterPath="$PROJECT_DIR$/views/add_fabric.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/add_product.hbs" afterPath="$PROJECT_DIR$/views/add_product.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/admin/product.js" afterPath="$PROJECT_DIR$/routes/admin/product.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NeverLand.iws" />
@@ -59,11 +28,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.49115646">
       <split-first>
         <leaf>
+          <file leaf-file-name="add_product.hbs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/add_product.hbs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-12.0">
+                  <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.709678">
-                  <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+                <state vertical-scroll-proportion="-9.387096">
+                  <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
                   <folding>
                     <element signature="e#773#2995#0" expanded="false" />
                   </folding>
@@ -83,24 +62,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="add_banner.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/stylesheets/add_banner.scss">
+          <file leaf-file-name="add_fabric.hbs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/add_fabric.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.25">
-                  <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+                <state vertical-scroll-proportion="-17.166666">
+                  <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="add_material.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/add_material.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="49" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#41#79#0" expanded="false" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -117,10 +84,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/javascripts/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2639296">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
                   <folding>
                     <element signature="e#0#39#0" expanded="false" />
@@ -154,19 +121,23 @@
           <file leaf-file-name="product.hbs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/product.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-16.166666">
+                <state vertical-scroll-proportion="-7.0545454">
                   <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-                  <folding />
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#8;n#div#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="add_material.hbs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/add_material.hbs">
+          <file leaf-file-name="product.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.75">
-                  <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="25" />
-                  <folding />
+                <state vertical-scroll-proportion="0.49853373">
+                  <caret line="61" column="59" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="59" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -207,10 +178,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/bower_components/Swiper/README.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="-0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
@@ -265,11 +236,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="add_product.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="add_product.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="122" column="7" selection-start-line="120" selection-start-column="6" selection-end-line="122" selection-end-column="7" />
+                <state vertical-scroll-proportion="5.364055">
+                  <caret line="196" column="28" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#40#0" expanded="false" />
                   </folding>
@@ -321,13 +292,11 @@
         <option value="$PROJECT_DIR$/public/stylesheets/product.scss" />
         <option value="$PROJECT_DIR$/views/admin_products.hbs" />
         <option value="$PROJECT_DIR$/models/Fabrics.js" />
-        <option value="$PROJECT_DIR$/views/add_product.hbs" />
         <option value="$PROJECT_DIR$/models/Fabric.js" />
         <option value="$PROJECT_DIR$/public/javascripts/add_product.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/admin_fabrics.scss" />
         <option value="$PROJECT_DIR$/views/admin_fabrics.hbs" />
         <option value="$PROJECT_DIR$/public/stylesheets/add_fabric.scss" />
-        <option value="$PROJECT_DIR$/views/add_fabric.hbs" />
         <option value="$PROJECT_DIR$/models/Material.js" />
         <option value="$PROJECT_DIR$/public/javascripts/add_fabric.js" />
         <option value="$PROJECT_DIR$/public/javascripts/add_material.js" />
@@ -339,7 +308,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/lib/navbar.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/layout.scss" />
         <option value="$PROJECT_DIR$/models/HomeBanner.js" />
-        <option value="$PROJECT_DIR$/routes/admin/product.js" />
         <option value="$PROJECT_DIR$/routes/admin/fabrics.js" />
         <option value="$PROJECT_DIR$/routes/admin/material.js" />
         <option value="$PROJECT_DIR$/routes/admin/index.js" />
@@ -356,6 +324,9 @@
         <option value="$PROJECT_DIR$/views/layout.hbs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.scss" />
         <option value="$PROJECT_DIR$/public/javascripts/index.js" />
+        <option value="$PROJECT_DIR$/views/add_fabric.hbs" />
+        <option value="$PROJECT_DIR$/views/add_product.hbs" />
+        <option value="$PROJECT_DIR$/routes/admin/product.js" />
       </list>
     </option>
   </component>
@@ -881,7 +852,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441036951437</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add website top, add banners admin">
+      <created>1441123007670</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1441123007670</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -931,7 +908,8 @@
     <MESSAGE value="add mongo db dump and missing css" />
     <MESSAGE value="add missing images" />
     <MESSAGE value="remove .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove .idea" />
+    <MESSAGE value="add website top, add banners admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="add website top, add banners admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1030,14 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/add_product.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1057,14 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0">
           <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/add_fabric.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.25">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1183,16 +1145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin/material.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1246,16 +1198,6 @@
         <state vertical-scroll-proportion="-0.75">
           <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="7" selection-start-line="120" selection-start-column="6" selection-end-line="122" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1335,24 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.709678">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#773#2995#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/product.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.166666">
-          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/product.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1387,14 +1311,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/Swiper/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/add_banner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1407,8 +1323,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2639296">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.387096">
+          <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+          <folding>
+            <element signature="e#773#2995#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/product.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0545454">
+          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#8;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/add_fabric.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.166666">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/add_product.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.0">
+          <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/Swiper/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.364055">
+          <caret line="196" column="28" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49853373">
+          <caret line="61" column="59" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="59" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
           </folding>

@@ -4,6 +4,7 @@
 var express = require("express");
 var router = express.Router();
 var multer  = require('multer');
+var mongoose = require("mongoose");
 var fs = require("fs");
 var upload = multer({ dest: 'images/' });
 var Product = require("../../models/Product");
@@ -47,8 +48,8 @@ var productUpload = upload.fields([
 router.post("/add/", productUpload, function(req, res, next) {
   var product = new Product();
   product.name = req.body.name;
-  product.category = mongoose.Schema.Types.ObjectId(req.body.catid);
-  product.subcategory = mongoose.Schema.Types.ObjectId(req.body.sub_catid);
+  product.category = new mongoose.Types.ObjectId(req.body.cat_id);
+  product.subcategory = new mongoose.Types.ObjectId(req.body.sub_cat_id);
   var images = req.files["images[]"];
   for (var i=0; i<images.length; i++) {
     product.images.push({

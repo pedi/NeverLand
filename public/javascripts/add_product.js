@@ -100,7 +100,7 @@ function initDom() {
       return false;
     } else {
       productCategoryId = productCategory.val();
-      formData.append("cat_name", productCategoryId);
+      formData.append("cat_id", productCategoryId);
     }
 
     var subProductCategory = $("#select-sub-category").find(":selected");
@@ -110,7 +110,7 @@ function initDom() {
       return false;
     } else {
       subProductCategoryId = subProductCategory.val();
-      formData.append("sub_cat_name", subProductCategoryId);
+      formData.append("sub_cat_id", subProductCategoryId);
     }
 
     var images = $("#input-upload-images")[0].files;

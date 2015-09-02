@@ -2,6 +2,8 @@ var express = require('express');
 var SubCategory = require("../models/SubCategory");
 var Category = require("../models/Category");
 var Banner = require("../models/Banner");
+var Product = require("../models/Product");
+var Fabric = require("../models/Fabric");
 var router = express.Router();
 var admin = require("./admin/index");
 
@@ -89,11 +91,13 @@ router.get("/products/:id/", function(req, res, next) {
 router.get("/category/:sub_category_name/", function(req, res, next) {
   var categoryName = req.params.sub_category_name;
   if (categoryName) {
-    SubCategory.find({name : categoryName}).exec(function(err, subCategory) {
+    SubCategory.findOne({name : categoryName}).exec(function(err, subCategory) {
       if (err) {
         next(new Error("category not found"))
       } else {
-        res.end(subCategory.toString());
+        Product.find({subcategory : subCategory._id}).exec(function(err, products) {
+          res.render("category", {products : products});
+        });
       }
     })
   } else {

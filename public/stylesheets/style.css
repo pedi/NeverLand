@@ -1,7 +1,9 @@
 .navbar-default {
   box-shadow: none;
   background-color: white;
-  border-bottom-color: darkgrey; }
+  border-bottom-color: d; }
+  .navbar-default .container {
+    padding-bottom: 6px; }
   .navbar-default .navbar-brand {
     padding: 0;
     display: inline-block;
@@ -25,7 +27,6 @@
 .category-dropdown {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
-  background-color: white !important;
   background-image: none !important;
   border: none !important; }
 

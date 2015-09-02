@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var exphbs = require("express-handlebars");
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -12,7 +12,21 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+
+// Create `ExpressHandlebars` instance with a default layout.
+
+app.engine('.hbs', exphbs({
+  defaultLayout: 'layout',
+  //helpers      : helpers,
+  extname : ".hbs",
+  // Uses multiple partials dirs, templates in "shared/templates/" are shared
+  // with the client-side of the app (see below).
+  partialsDir: [
+    //'shared/templates/',
+    'views/partials/'
+  ]
+}));
+app.set('view engine', ".hbs");
 app.disable("view cache");
 
 // uncomment after placing your favicon in /public

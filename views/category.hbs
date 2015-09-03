@@ -1,1 +1,5 @@
-{{> product/list}}
+{{#if products}}
+    {{> product/list}}
+{{else}}
+    no product found
+{{/if}}

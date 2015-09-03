@@ -18,7 +18,7 @@
     <hr>
     <h2 class="h4">Build Your Own</h2>
     <div class="row">
-        <div class="col-xs-4 col-md-2">
+        <div class="col-xs-4 col-md-3">
             <div>Size</div>
             <select id="select-model" class="form-control">
                 {{#each product.models}}
@@ -38,7 +38,8 @@
         <div class="col-xs-4 col-md-2">
             <div>Quantity</div>
             <select id="select-quantity" class="form-control">
-
+                <option value="{{product.batch_ratio}}">6-10</option>
+                <option value="0">>10</option>
             </select>
         </div>
     </div>
@@ -50,9 +51,13 @@
     <div>*Any alternation is subject to the final PI we send to you.</div>
     <div>*<a target="_blank" href="{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
     <hr>
+
+    {{#if product.available_sizes_image.path}}
     <h2 class="h4">Available Sizes</h2>
     <img class="img_available_sizes" src="/{{product.available_sizes_image.path}}">
     <hr>
+    {{/if}}
+
 
     {{#each fabricGroups}}
         <h2 class="h4">Available Fabrics & Leathers</h2>

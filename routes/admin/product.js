@@ -63,10 +63,12 @@ router.post("/add/", productUpload, function(req, res, next) {
   product.delivery_time = parseInt(req.body.price_group_delivery);
   product.download_link = req.body.price_group_download;
   var availableSizeImage = req.files["available_size_image"];
-  product.available_sizes_image = {
-    path : availableSizeImage[0].path,
-    content_type : availableSizeImage[0].mimetype
-  };
+  if (availableSizeImage) {
+    product.available_sizes_image = {
+      path : availableSizeImage[0].path,
+      content_type : availableSizeImage[0].mimetype
+    };
+  }
 
   if (req.body.price_group == "a") {
     // fabric types

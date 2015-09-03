@@ -11,6 +11,11 @@ var fabrics = require("./fabrics");
 var material = require("./material");
 var banner = require("./banner");
 
+router.use(function(req, res, next) {
+  res.locals.is_admin = 1;
+  next();
+});
+
 router.use("/products/", product);
 router.use("/fabrics/", fabrics);
 router.use("/materials/", material);

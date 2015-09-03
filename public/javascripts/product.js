@@ -12,12 +12,9 @@ function initDom() {
     loop: true,
     // If we need pagination
     pagination: '.swiper-pagination',
+    paginationClickable : "true"
   });
 
-  // populate quantity select
-  for (var i=0; i<20; i++) {
-    $("#select-quantity").append("<option>" + (i+1) + "</option>");
-  }
 
   // init model select handler
   $("#select-model").on("change", function(e) {
@@ -49,8 +46,10 @@ function initDom() {
 
 function computePrice() {
   var price = parseFloat($("#select-finishes").find(":selected").val());
-  var quantity = parseInt($("#select-quantity").find(":selected").val());
-  var totalPrice = price * quantity;
+  var ratio = parseFloat($("#select-quantity").find(":selected").val());
+  var totalPrice = price;
+  if (ratio)
+    totalPrice = price * ratio;
   return totalPrice;
 }
 

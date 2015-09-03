@@ -135,8 +135,9 @@ function initDom() {
     var chooseGroupA = $("#checkbox-fabrics")[0].checked;
     var chooseGroupB = $("#checkbox-material")[0].checked;
     if (!chooseGroupA && !chooseGroupB) {
-      alert("please select a price group type (A or B)");
-      return false;
+      //alert("please select a price group type (A or B)");
+      //return false;
+      // no longer compulsory
     } else if (chooseGroupA && chooseGroupB) {
       alert("please select only one price group, not both");
       return false;
@@ -244,15 +245,16 @@ function initDom() {
     // available sizes
     var files = $("#input-available-sizes")[0].files;
     if (!(files && files[0])) {
-      alert("please upload available size image");
-      return false;
+      //alert("please upload available size image");
+      //return false;
+      // no longer compulsory
     } else {
       formData.append("available_size_image", files[0]);
     }
 
      // all ready, begin upload
     $.ajax({
-      url : "./",
+      url : "/admin/products/add/",
       type : "POST",
       data : formData,
       contentType : false,

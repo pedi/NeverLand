@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="swiper-container row">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {{#each contact.images}}
+                <div class="swiper-slide">
+                    <img class="img-responsive" src="/{{this.path}}">
+                </div>
+            {{/each}}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<p class="row">{{contact.content}}</p>
+<script type="text/javascript" src="/javascripts/index.js"></script>

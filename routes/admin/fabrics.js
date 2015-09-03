@@ -5,7 +5,7 @@ var express = require("express");
 var router = express.Router();
 var multer  = require('multer');
 var _ = require("underscore");
-var upload = multer({ dest: 'images/' });
+var upload = multer({ dest: 'images/fabrics/' });
 var Fabric = require("../../models/Fabric");
 
 router.get("/", function(req, res, next) {

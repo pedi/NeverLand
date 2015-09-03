@@ -10,6 +10,8 @@ var product = require("./product");
 var fabrics = require("./fabrics");
 var material = require("./material");
 var banner = require("./banner");
+var contact = require("./contact");
+var about = require("./about");
 
 router.use(function(req, res, next) {
   res.locals.is_admin = 1;
@@ -20,5 +22,7 @@ router.use("/products/", product);
 router.use("/fabrics/", fabrics);
 router.use("/materials/", material);
 router.use("/banners/", banner);
+router.use("/contact/", contact);
+router.use("/about/", about);
 
 module.exports = router;

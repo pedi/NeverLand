@@ -6,7 +6,7 @@ var router = express.Router();
 var multer  = require('multer');
 var mongoose = require("mongoose");
 var fs = require("fs");
-var upload = multer({ dest: 'images/' });
+var upload = multer({ dest: 'images/products/' });
 var Product = require("../../models/Product");
 var Category = require("../../models/Category");
 

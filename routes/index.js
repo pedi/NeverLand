@@ -4,6 +4,7 @@ var Category = require("../models/Category");
 var Banner = require("../models/Banner");
 var Product = require("../models/Product");
 var Fabric = require("../models/Fabric");
+var Intro = require("../models/Intro");
 var router = express.Router();
 var admin = require("./admin/index");
 
@@ -28,6 +29,19 @@ router.get('/', function(req, res, next) {
     res.render('index', {banners : banners});
   });
 });
+
+router.get('/contact/', function(req, res, next) {
+  Intro.findOne({type : "contact"}).exec(function(error, contact) {
+    res.render('contact', {contact : contact});
+  });
+});
+
+router.get('/about/', function(req, res, next) {
+  Intro.findOne({type : "about"}).exec(function(error, about) {
+    res.render('about', {about : about});
+  });
+});
+
 
 router.get("/products/:id/", function(req, res, next) {
   var id = req.params.id;

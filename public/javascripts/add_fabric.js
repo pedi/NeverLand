@@ -12,6 +12,10 @@
             if (files && files[0]) {
                 $(".fabrics-image-preview").empty();
                 $.each(files, function(index, file) {
+                    if (file.size > 500000) {
+                        alert("each image cannot be more than 500Kb, please resize image first");
+                        return false;
+                    }
                     var fileReader = new FileReader();
                     fileReader.onload = function(e) {
                         var src = e.target.result;

@@ -5,26 +5,31 @@
 var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');
 var imageResize = require('gulp-image-resize');
+var rename = require("gulp-rename");
 
-function processImg (filesrc) {
+function processImg (filesrc, subdir) {
     return gulp.src(filesrc)
         // compress and save
         .pipe(imagemin({optimizationLevel: 5}))
         .pipe(imageResize({
             width: 960
         }))
-        .pipe(gulp.dest('images/960'))
-        .pipe(imageResize({
-            width: 320,
-            height: 320,
-            crop: true
+        .pipe(rename(function (path) {
+            path.dirname += "/"+subdir;
         }))
-        .pipe(gulp.dest('images/320'))
+        .pipe(gulp.dest('images/'))
+        .pipe(imageResize({
+            width: 320
+        }))
+        .pipe(rename(function (path) {
+          path.basename += "_thumbnail";
+        }))
+        .pipe(gulp.dest('images/'));
 }
 
-process.on('message', function (images) {
+process.on('message', function (images, subdir) {
     console.log('Image processing started...');
-    var stream = processImg(images);
+    var stream = processImg(images, subdir);
     stream.on('end', function () {
         process.send('Image processing complete');
         process.exit();

@@ -9,6 +9,25 @@ var fs = require("fs");
 var upload = multer({ dest: 'images/products/' });
 var Product = require("../../models/Product");
 var Category = require("../../models/Category");
+var path = require("path");
+var resize = path.resolve(__dirname, "../../helpers/image_resize.js");
+var _ = require("underscore");
+
+function compressAndResize(imageUrl, subdir) {
+  // We need to spawn a child process so that we do not block
+  // the EventLoop with cpu intensive image manipulation
+  var childProcess = require('child_process').fork(resize);
+  childProcess.on('message', function(message) {
+    console.log(message);
+  });
+  childProcess.on('error', function(error) {
+    console.error(error.stack)
+  });
+  childProcess.on('exit', function() {
+    console.log('process exited');
+  });
+  childProcess.send(imageUrl, subdir);
+}
 
 router.get("/", function(req, res, next) {
   Product.find().exec(function(err, products) {
@@ -51,6 +70,11 @@ router.post("/add/", productUpload, function(req, res, next) {
   product.category = new mongoose.Types.ObjectId(req.body.cat_id);
   product.subcategory = new mongoose.Types.ObjectId(req.body.sub_cat_id);
   var images = req.files["images[]"];
+
+  var images_path_list = _.pluck(images, "path");
+  if (images_path_list.length > 0)
+    compressAndResize(images_path_list, "product");
+
   for (var i=0; i<images.length; i++) {
     product.images.push({
       path : images[i].path,
@@ -132,7 +156,7 @@ router.post("/add/", productUpload, function(req, res, next) {
   }
   product.save(function(err, product) {
     if (!err) {
-      console.log(product);
+      //console.log(product);
       res.json({
         "success" : true
       });

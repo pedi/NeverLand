@@ -4,7 +4,7 @@
 var express = require("express");
 var router = express.Router();
 var multer  = require('multer');
-var upload = multer({ dest: 'images/banners/' });
+var upload = multer({ dest: 'images/' });
 var Banner = require("../../models/Banner");
 
 router.get("/", function(req, res, next) {

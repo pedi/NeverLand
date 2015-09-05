@@ -5,9 +5,8 @@
         {{#each products}}
             <div class="product-wrapper col-xs-12 col-md-4" data-product-id="{{this._id}}">
                 <a href="/products/{{this._id}}/">{{this.name}}
-                    <img src="/{{this.images.0.path}}">
+                    <img src="/{{this.images.0.path}}_thumbnail">
                 </a>
-
                 <button class="btn btn-primary btn-delete-product">Delete</button>
             </div>
         {{/each}}

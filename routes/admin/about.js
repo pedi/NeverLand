@@ -4,7 +4,7 @@
 var express = require("express");
 var router = express.Router();
 var multer  = require('multer');
-var upload = multer({ dest: 'images/about/' });
+var upload = multer({ dest: 'images/' });
 var Intro = require("../../models/Intro");
 
 router.use(function(req, res, next) {

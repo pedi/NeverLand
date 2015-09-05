@@ -12,10 +12,19 @@ var material = require("./material");
 var banner = require("./banner");
 var contact = require("./contact");
 var about = require("./about");
+var users = require("./users");
 
 router.use(function(req, res, next) {
-  res.locals.is_admin = 1;
-  next();
+  if (req.user && req.user.super_user) {
+    res.locals.is_admin = 1;
+    next();
+  } else {
+    res.redirect("/login/")
+  }
+});
+
+router.get("/", function(req, res, next) {
+  res.redirect("./products");
 });
 
 router.use("/products/", product);
@@ -24,5 +33,6 @@ router.use("/materials/", material);
 router.use("/banners/", banner);
 router.use("/contact/", contact);
 router.use("/about/", about);
+router.use("/users/", users);
 
 module.exports = router;

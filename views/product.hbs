@@ -1,6 +1,6 @@
 <!-- Slider main container -->
 <div class="container product-container">
-    <div class="swiper-container">
+    <div class="swiper-container row">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
@@ -16,6 +16,8 @@
     <h1 class="h3">{{product.name}}</h1>
     <p>{{{product.description}}}</p>
     <hr>
+
+    {{#if user.check_price}}
     <h2 class="h4">Build Your Own</h2>
     <div class="row">
         <div class="col-xs-4 col-md-3">
@@ -51,6 +53,7 @@
     <div>*Any alternation is subject to the final PI we send to you.</div>
     <div>*<a target="_blank" href="{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
     <hr>
+    {{/if}}
 
     {{#if product.available_sizes_image.path}}
     <h2 class="h4">Available Sizes</h2>

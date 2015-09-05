@@ -7,15 +7,12 @@ var imagemin = require('gulp-imagemin');
 var imageResize = require('gulp-image-resize');
 var rename = require("gulp-rename");
 
-function processImg (filesrc, subdir) {
+function processImg (filesrc) {
     return gulp.src(filesrc)
         // compress and save
-        .pipe(imagemin({optimizationLevel: 5}))
+        .pipe(imagemin({optimizationLevel: 8}))
         .pipe(imageResize({
             width: 960
-        }))
-        .pipe(rename(function (path) {
-            path.dirname += "/"+subdir;
         }))
         .pipe(gulp.dest('images/'))
         .pipe(imageResize({
@@ -27,9 +24,9 @@ function processImg (filesrc, subdir) {
         .pipe(gulp.dest('images/'));
 }
 
-process.on('message', function (images, subdir) {
+process.on('message', function (images) {
     console.log('Image processing started...');
-    var stream = processImg(images, subdir);
+    var stream = processImg(images);
     stream.on('end', function () {
         process.send('Image processing complete');
         process.exit();

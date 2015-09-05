@@ -103,7 +103,7 @@ module.exports = function(passport) {
             model.fabrics = [];
             var fabricGroup = [];
             for (var j=0; j<model.fabrics_type.length; j++) {
-              model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
+              model.fabrics.push({type : "Fabric Price " + model.fabrics_type[j], price : model.fabrics_price[j]});
               if (model.fabrics_price[j] != -1) {
                 fabricGroup.push(model.fabrics_type[j]);
               }

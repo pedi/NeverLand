@@ -21,7 +21,7 @@
     <h2 class="h4">Build Your Own</h2>
     <div class="row">
         <div class="col-xs-4 col-md-3">
-            <div>Size</div>
+            <div>Size</div>admin/pr
             <select id="select-model" class="form-control">
                 {{#each product.models}}
                     {{#if this.fabrics}}
@@ -33,7 +33,7 @@
                 {{/each}}
             </select>
         </div>
-        <div class="col-xs-4 col-md-2">
+        <div class="col-xs-4 col-md-4">
             <div>Finishes</div>
             <select id="select-finishes" class="form-control"></select>
         </div>
@@ -51,7 +51,7 @@
     <div>Delivery Time: <span class="navy-blue">{{product.delivery_time}} days</span></div>
     <br>
     <div>*Any alternation is subject to the final PI we send to you.</div>
-    <div>*<a target="_blank" href="{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
+    <div>*<a target="_blank" href="/{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
     <hr>
     {{/if}}
 

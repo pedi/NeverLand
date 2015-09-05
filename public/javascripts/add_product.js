@@ -191,15 +191,15 @@ function initDom() {
         alert("please enter delivery time");
         return false;
       }
-      var downloadLink = $("#price-group-a input[name=input-download-link]").val().trim();
-      if (!downloadLink) {
-        alert("please provide download link");
+      var downloadFile = $("#price-group-a input[name=input-download-link]")[0].files;
+      if (!(downloadFile && downloadFile[0])) {
+        alert("please provide download file");
         return false;
       }
       formData.append("price_group", "a");
       formData.append("price_group_ratio", priceRatio);
       formData.append("price_group_delivery", deliveryTime);
-      formData.append("price_group_download", downloadLink);
+      formData.append("download_file", downloadFile[0]);
     } else {
       // choose price group b
       var priceGroups = $("#price-group-b-wrapper .price-group-row");
@@ -239,15 +239,15 @@ function initDom() {
         alert("please enter delivery time");
         return false;
       }
-      var downloadLink = $("#price-group-b input[name=input-download-link]").val().trim();
-      if (!downloadLink) {
-        alert("please provide download link");
+      var downloadFile = $("#price-group-a input[name=input-download-link]")[0].files;
+      if (!(downloadFile && downloadFile[0])) {
+        alert("please provide download file");
         return false;
       }
       formData.append("price_group", "b");
       formData.append("price_group_ratio", priceRatio);
       formData.append("price_group_delivery", deliveryTime);
-      formData.append("price_group_download", downloadLink);
+      formData.append("download_file", downloadFile[0]);
     }
 
     // available sizes

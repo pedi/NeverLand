@@ -6,7 +6,24 @@ var router = express.Router();
 var multer  = require('multer');
 var mongoose = require("mongoose");
 var fs = require("fs");
-var upload = multer({ dest: 'images/' });
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'images/')
+  },
+  filename: function (req, file, cb) {
+    console.log("file type is");
+    console.log(file);
+    if (file.mimetype == "application/vnd.ms-excel")
+      cb(null, file.originalname);
+    else if (file.mimetype == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+      cb(null, file.originalname);
+    else
+      cb(null, ''+Date.now())
+  }
+});
+var upload = multer({
+  storage : storage
+});
 var Product = require("../../models/Product");
 var Category = require("../../models/Category");
 var path = require("path");
@@ -61,7 +78,8 @@ router.get("/add/", function(req, res, next) {
 
 var productUpload = upload.fields([
   { name: 'images[]', maxCount: 20 },
-  { name: 'available_size_image', maxCount: 1 }
+  { name: 'available_size_image', maxCount: 1 },
+  { name: 'download_file', maxCount: 1 }
 ]);
 
 router.post("/add/", productUpload, function(req, res, next) {
@@ -85,13 +103,17 @@ router.post("/add/", productUpload, function(req, res, next) {
   product.batch_ratio = parseFloat(req.body.price_group_ratio);
   product.batch_threshold = 10;
   product.delivery_time = parseInt(req.body.price_group_delivery);
-  product.download_link = req.body.price_group_download;
+  //product.download_link = req.body.price_group_download;
   var availableSizeImage = req.files["available_size_image"];
   if (availableSizeImage) {
     product.available_sizes_image = {
       path : availableSizeImage[0].path,
       content_type : availableSizeImage[0].mimetype
     };
+  }
+  var downloadFile = req.files['download_file'];
+  if (downloadFile) {
+    product.download_link = downloadFile[0].path;
   }
 
   if (req.body.price_group == "a") {

@@ -49,7 +49,7 @@ function computePrice() {
   var ratio = parseFloat($("#select-quantity").find(":selected").val());
   var totalPrice = price;
   if (ratio)
-    totalPrice = price * ratio;
+    totalPrice = parseInt(price * ratio);
   return totalPrice;
 }
 

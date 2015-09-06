@@ -9,10 +9,11 @@ var _ = require("underscore");
 var Material = require("../../models/Material");
 
 router.get("/", function(req, res, next) {
-  Material.find().exec(function(error, fabrics) {
+  Material.find().exec(function(error, materials) {
     if (!error) {
-      var materialGroups = _.groupBy(fabrics, function(fabric) {
-        return fabric.price_group;
+      materials = _.sortBy(materials, 'name');
+      var materialGroups = _.groupBy(materials, function(materials) {
+        return materials.price_group;
       });
       res.render("admin_materials", {
         materialGroups : materialGroups

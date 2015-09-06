@@ -1,5 +1,7 @@
 .product-container {
   max-width : 720px;
+  padding-left : 0;
+  padding-right : 0;
   hr {
     border-top-color : darkgrey;
   }
@@ -9,6 +11,10 @@
   span.navy-blue {
     color : #337ab7;
   }
+}
+
+.price-group-header {
+  color : #337ab7;
 }
 .swiper-container {
   .swiper-slide {

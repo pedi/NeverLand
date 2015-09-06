@@ -11,6 +11,7 @@ var Fabric = require("../../models/Fabric");
 router.get("/", function(req, res, next) {
   Fabric.find().exec(function(error, fabrics) {
     if (!error) {
+      fabrics = _.sortBy(fabrics, 'name');
       var fabricGroups = _.groupBy(fabrics, function(fabric) {
         return fabric.type;
       });

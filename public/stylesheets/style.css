@@ -1,19 +1,13 @@
 .navbar-default {
   box-shadow: none;
   background-color: white;
-  border-bottom-color: d; }
-  .navbar-default .container {
-    padding-bottom: 6px; }
+  background-image: none; }
   .navbar-default .navbar-brand {
     padding: 0;
     display: inline-block;
     margin-right: 130px; }
     .navbar-default .navbar-brand img {
       height: 100%; }
-  .navbar-default .navbar-nav > li > a {
-    margin-top: 26px;
-    padding-top: 0;
-    padding-bottom: 4px; }
 
 .nav .open > a:hover, a {
   background-color: white !important;
@@ -30,13 +24,8 @@
   background-image: none !important;
   border: none !important; }
 
-.navbar-form {
-  margin-top: 22px; }
-  .navbar-form input {
-    border-radius: 0;
-    padding: 0 4px;
-    height: 24px;
-    line-height: 24px; }
+.navbar-form input {
+  border-radius: 0; }
 
 @media (min-width: 767px) {
   .caret-right {
@@ -45,6 +34,9 @@
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
     border-left: 4px solid #777777; } }
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background: none; }
+
 .banner-images .col-xs-4 img {
   width: 100%;
   padding: 4px; }

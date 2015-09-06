@@ -49,6 +49,7 @@ function compressAndResize(imageUrl) {
 router.get("/", function(req, res, next) {
   Product.find().exec(function(err, products) {
     if (!err) {
+      products = _.sortBy(products, 'name');
       res.render("admin_products", { products : products});
     } else {
       next(err);

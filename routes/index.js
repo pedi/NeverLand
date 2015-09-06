@@ -103,7 +103,7 @@ module.exports = function(passport) {
             model.fabrics = [];
             var fabricGroup = [];
             for (var j=0; j<model.fabrics_type.length; j++) {
-              model.fabrics.push({type : "Fabric Price " + model.fabrics_type[j], price : model.fabrics_price[j]});
+              model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
               if (model.fabrics_price[j] != -1) {
                 fabricGroup.push(model.fabrics_type[j]);
               }
@@ -151,6 +151,23 @@ module.exports = function(passport) {
     })
   });
 
+  router.get("/search/", function(req, res, next) {
+    var query = req.query.keyword;
+    if (query) {
+      var re = new RegExp(query, 'i');
+      Product.find({
+        name : re,
+      }).exec(function(err, products) {
+        if (err) {
+          next(err);
+        } else {
+          products = _.sortBy(products, 'name');
+          res.render("category", {products : products});
+        }
+      })
+    }
+  });
+
   router.get("/category/:sub_category_name/", function(req, res, next) {
     var categoryName = req.params.sub_category_name;
     if (categoryName) {
@@ -159,6 +176,7 @@ module.exports = function(passport) {
           next(new Error("category not found"))
         } else {
           Product.find({subcategory : subCategory._id}).exec(function(err, products) {
+            products = _.sortBy(products, 'name');
             res.render("category", {products : products});
           });
         }

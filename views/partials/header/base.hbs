@@ -33,10 +33,9 @@
                 <li><a href="/contact/">Contact</a></li>
             </ul>
             {{#if user}}
-            <form class="navbar-form navbar-right" role="search">
-
+            <form class="navbar-form navbar-right" role="search" action="/search/">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" name="keyword">
                 </div>
             </form>
             <ul class="nav navbar-nav">

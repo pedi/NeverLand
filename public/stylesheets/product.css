@@ -13,4 +13,22 @@
 p {
   white-space: pre-wrap; }
 
+.collapse-wrapper {
+  transition: height 200ms ease-in-out;
+  overflow: hidden; }
+  .collapse-wrapper.collapsed {
+    height: 0; }
+
+.collapse-toggle:before {
+  cursor: pointer;
+  position: relative;
+  margin-top: 5px;
+  bottom: 20px;
+  content: "\FE40";
+  display: block;
+  text-align: center; }
+.collapse-toggle.to-collapse:before {
+  bottom: 25px;
+  content: "\FE3F"; }
+
 /*# sourceMappingURL=product.css.map */

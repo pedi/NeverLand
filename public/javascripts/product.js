@@ -15,6 +15,21 @@ function initDom() {
     paginationClickable : "true"
   });
 
+  // init collapse handle
+  //$(".collapse-wrapper").each(function(wrapper) {
+  //  $(wrapper).height = $(wrapper).find(".collapse-wraper-inner").outerHeight(true));
+  //});
+  $(".collapse-toggle").on("click", function(e) {
+    var toggleDom = $(e.currentTarget);
+    var wrapper = $(toggleDom.prev(".collapse-wrapper"));
+    if (toggleDom.hasClass("to-collapse")) {
+      wrapper.height(0);
+    } else {
+      wrapper.height(wrapper.find(".collapse-wrapper-inner").outerHeight(true));
+    }
+    toggleDom.toggleClass("to-collapse");
+  });
+
 
   // init model select handler
   $("#select-model").on("change", function(e) {

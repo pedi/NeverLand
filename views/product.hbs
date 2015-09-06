@@ -19,75 +19,93 @@
 
     {{#if user.check_price}}
     <h2 class="h4">Build Your Own</h2>
-    <div class="row">
-        <div class="col-xs-4 col-md-3">
-            <div>Size</div>
-            <select id="select-model" class="form-control">
-                {{#each product.models}}
-                    {{#if this.fabrics}}
-                        <option value="{{this.fabrics}}">{{this.name}}</option>
-                    {{else}}
-                        <option value="{{this.materials}}">{{this.name}}</option>
-                    {{/if}}
+    <div class="collapse-wrapper collapsed">
+        <div class="collapse-wrapper-inner">
+            <div class="row">
+                <div class="col-xs-4 col-md-3">
+                    <div>Size</div>
+                    <select id="select-model" class="form-control">
+                        {{#each product.models}}
+                            {{#if this.fabrics}}
+                                <option value="{{this.fabrics}}">{{this.name}}</option>
+                            {{else}}
+                                <option value="{{this.materials}}">{{this.name}}</option>
+                            {{/if}}
 
-                {{/each}}
-            </select>
-        </div>
-        <div class="col-xs-4 col-md-4">
-            <div>Finishes</div>
-            <select id="select-finishes" class="form-control"></select>
-        </div>
-        <div class="col-xs-4 col-md-2">
-            <div>Quantity</div>
-            <select id="select-quantity" class="form-control">
-                <option value="{{product.batch_ratio}}">6-10</option>
-                <option value="0">>10</option>
-            </select>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                    <div>Finishes</div>
+                    <select id="select-finishes" class="form-control"></select>
+                </div>
+                <div class="col-xs-4 col-md-2">
+                    <div>Quantity</div>
+                    <select id="select-quantity" class="form-control">
+                        <option value="{{product.batch_ratio}}">6-10</option>
+                        <option value="0">>10</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div>FOB Ningbo price/PC: <span class="navy-blue"><span id="span-price">200</span> US$</span></div>
+            <div>VOL/PC: <span class="navy-blue"><span>2</span> CBM</span></div>
+            <div>Delivery Time: <span class="navy-blue">{{product.delivery_time}} days</span></div>
+            <br>
+            <div>*Any alternation is subject to the final PI we send to you.</div>
+            <div>*<a target="_blank" href="/{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
         </div>
     </div>
-    <br>
-    <div>FOB Ningbo price/PC: <span class="navy-blue"><span id="span-price">200</span> US$</span></div>
-    <div>VOL/PC: <span class="navy-blue"><span>2</span> CBM</span></div>
-    <div>Delivery Time: <span class="navy-blue">{{product.delivery_time}} days</span></div>
-    <br>
-    <div>*Any alternation is subject to the final PI we send to you.</div>
-    <div>*<a target="_blank" href="/{{product.download_link}}">Download</a> an order sheet and make a draft order yourself.</div>
-    <hr>
+    <hr class="collapse-toggle">
     {{/if}}
 
     {{#if product.available_sizes_image.path}}
     <h2 class="h4">Available Sizes</h2>
-    <img class="img_available_sizes" src="/{{product.available_sizes_image.path}}">
-    <hr>
+    <div class="collapse-wrapper collapsed">
+        <div class="collapse-wrapper-inner">
+            <img class="img_available_sizes" src="/{{product.available_sizes_image.path}}">
+        </div>
+    </div>
+    <hr class="collapse-toggle">
     {{/if}}
 
 
     {{#each fabricGroups}}
-        <h2 class="h4">Available Fabrics & Leathers</h2>
-        <div class="container row product-container">
-            <h3 class="h4">{{@key}}</h3>
-            {{#each this}}<div class="col-xs-4 cold-md-3 fabric-card-wrapper"
-                               data-fabric-id="{{this._id}}">
-                <div class="fabric-card" style="background-image:url(/{{this.image.path}})">
-                    <div class="dummy"></div>
-                </div>
-                <div class="fabric-name">{{this.name}}</div>
-                <div class="price-group">Price Group: {{this.price_group}}</div>
-            </div>{{/each}}
+    <h2 class="h4">Available Fabrics & Leathers</h2>
+    <div class="collapse-wrapper collapsed">
+        <div class="collapse-wrapper-inner">
+            <div class="container row product-container">
+                <h3 class="h4">{{@key}}</h3>
+                {{#each this}}<div class="col-xs-4 cold-md-3 fabric-card-wrapper"
+                                   data-fabric-id="{{this._id}}">
+                    <div class="fabric-card" style="background-image:url(/{{this.image.path}})">
+                        <div class="dummy"></div>
+                    </div>
+                    <div class="fabric-name">{{this.name}}</div>
+                    <div class="price-group">Price Group: {{this.price_group}}</div>
+                </div>{{/each}}
+            </div>
         </div>
+    </div>
+    <hr class="collapse-toggle">
     {{/each}}
     {{#each materialGroups}}
-        <h2 class="h4">Available Materials</h2>
-        <div class="container row product-container">
-            <h3 class="h4">{{@key}}</h3>
-            {{#each this}}<div class="col-xs-4 cold-md-3 material-card-wrapper"
-                               data-material-id="{{this._id}}">
-                <div class="material-card" style="background-image:url(/{{this.image.path}})">
-                    <div class="dummy"></div>
-                </div>
-                <div class="material-name">{{this.name}}</div>
-            </div>{{/each}}
+    <h2 class="h4">Available Materials</h2>
+    <div class="collapse-wrapper collapsed">
+        <div class="collapse-wrapper-inner">
+            <div class="container row product-container">
+                <h3 class="h4">{{@key}}</h3>
+                {{#each this}}<div class="col-xs-4 cold-md-3 material-card-wrapper"
+                                   data-material-id="{{this._id}}">
+                    <div class="material-card" style="background-image:url(/{{this.image.path}})">
+                        <div class="dummy"></div>
+                    </div>
+                    <div class="material-name">{{this.name}}</div>
+                </div>{{/each}}
+            </div>
         </div>
+    </div>
+    <hr class="collapse-toggle">
     {{/each}}
 </div>
 

@@ -79,7 +79,7 @@
         {{#each fabricGroups}}
             <div class="container product-container">
                 <h3 class="h5 price-group-header">{{@key}}</h3>
-                {{#each this}}<div class="col-xs-4 cold-md-3 fabric-card-wrapper"
+                {{#each this}}<div class="col-xs-6 cold-md-3 fabric-card-wrapper"
                                    data-fabric-id="{{this._id}}">
                     <div class="fabric-card" style="background-image:url(/{{this.image.path}})">
                         <div class="dummy"></div>
@@ -101,7 +101,7 @@
             {{#each materialGroups}}
                 <div class="container product-container">
                     <h3 class="h5 price-group-header">{{@key}}</h3>
-                    {{#each this}}<div class="col-xs-4 cold-md-3 material-card-wrapper"
+                    {{#each this}}<div class="col-xs-6 cold-md-3 material-card-wrapper"
                                        data-material-id="{{this._id}}">
                         <div class="material-card" style="background-image:url(/{{this.image.path}})">
                             <div class="dummy"></div>

@@ -69,6 +69,7 @@
     <hr class="collapse-toggle">
     {{/if}}
 
+    {{#if fabricGroups}}
     <h2 class="h4">Available Fabrics & Leathers</h2>
     <div class="collapse-wrapper collapsed">
         <div class="collapse-wrapper-inner">
@@ -88,7 +89,9 @@
         </div>
     </div>
     <hr class="collapse-toggle">
+    {{/if}}
 
+    {{#if materialGroups}}
     <h2 class="h4">Available Materials</h2>
     <div class="collapse-wrapper collapsed">
         <div class="collapse-wrapper-inner">
@@ -107,7 +110,7 @@
         </div>
     </div>
     <hr class="collapse-toggle">
-
+    {{/if}}
 </div>
 
 <script type="text/javascript" src="/javascripts/product.js"></script>

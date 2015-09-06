@@ -42,8 +42,8 @@
           <file leaf-file-name="product.hbs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/product.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5602606">
-                  <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+                <state vertical-scroll-proportion="0.7068404">
+                  <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
                   <folding>
                     <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
@@ -713,7 +713,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441521949694</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="ui fixes">
+      <created>1441522288862</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1441522288862</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -783,7 +789,8 @@
     <MESSAGE value="progress update, add collapse animation" />
     <MESSAGE value="update ui" />
     <MESSAGE value="variouis bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="variouis bug fixes" />
+    <MESSAGE value="ui fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1238,8 +1245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/product.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5602606">
-          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.7068404">
+          <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />

@@ -4,6 +4,7 @@ var Category = require("../models/Category");
 var Banner = require("../models/Banner");
 var Product = require("../models/Product");
 var Fabric = require("../models/Fabric");
+var Material = require("../models/Material");
 var User = require("../models/User");
 var Intro = require("../models/Intro");
 var router = express.Router();
@@ -97,11 +98,13 @@ module.exports = function(passport) {
     Product.findById(id, function(error, product) {
       if (!error && product) {
         // preprocess price groups
+        var fabricGroup = null;
+        var materialGroup = null;
         for (var i=0; i<product.models.length; i++) {
           var model = product.models[i];
           if (model.fabrics_type && model.fabrics_price.length > 0) {
             model.fabrics = [];
-            var fabricGroup = [];
+            fabricGroup = [];
             for (var j=0; j<model.fabrics_type.length; j++) {
               model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
               if (model.fabrics_price[j] != -1) {
@@ -110,20 +113,9 @@ module.exports = function(passport) {
             }
             model.fabrics = JSON.stringify(model.fabrics);
             // get related model fabrics data
-            Fabric.find({
-              price_group : { $in : fabricGroup}
-            }).exec(function(error, fabrics) {
-              if (!error) {
-                var fabricGroups = _.groupBy(fabrics, function(fabric) {
-                  return fabric.type;
-                });
-                res.render("product", {product : product, fabricGroups:fabricGroups});
-              } else {next(error);}
-            })
-          }
-          if (model.material_type && model.material_price.length > 0) {
+          } else if (model.material_type && model.material_price.length > 0) {
             model.materials = [];
-            var materialGroup = [];
+            materialGroup = [];
             for (var j=0; j<model.material_type.length; j++) {
               model.materials.push({type : model.material_type[j], price : model.material_price[j]});
               if (model.material_price[j] != -1) {
@@ -133,17 +125,32 @@ module.exports = function(passport) {
             model.materials = JSON.stringify(model.materials);
             //res.render("product", {product : product});
             // get related model fabrics data
-            Material.find({
-              price_group : { $in : materialGroup}
-            }).exec(function(error, materials) {
-              if (!error) {
-                var materialGroups = _.groupBy(materials, function(material) {
-                  return material.price_group;
-                });
-                res.render("product", {product : product, materialGroups:materialGroups});
-              } else {next(error);}
-            })
           }
+        }
+        if (fabricGroup) {
+          Fabric.find({
+            price_group : { $in : fabricGroup}
+          }).exec(function(error, fabrics) {
+            if (!error) {
+              var fabricGroups = _.groupBy(fabrics, function(fabric) {
+                return fabric.type;
+              });
+              res.render("product", {product : product, fabricGroups:fabricGroups});
+            } else {next(error);}
+          })
+        } else if (materialGroup){
+          Material.find({
+            price_group : { $in : materialGroup}
+          }).exec(function(error, materials) {
+            if (!error) {
+              var materialGroups = _.groupBy(materials, function(material) {
+                return material.price_group;
+              });
+              res.render("product", {product : product, materialGroups:materialGroups});
+            } else {next(error);}
+          })
+        } else {
+          res.render("product", {product : product});
         }
       } else {
         next(error);

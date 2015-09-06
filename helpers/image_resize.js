@@ -10,7 +10,7 @@ var rename = require("gulp-rename");
 function processImg (filesrc) {
     return gulp.src(filesrc)
         // compress and save
-        .pipe(imagemin({optimizationLevel: 8}))
+        .pipe(imagemin({optimizationLevel: 6}))
         .pipe(imageResize({
             width: 960
         }))

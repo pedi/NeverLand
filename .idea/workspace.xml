@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin_fabrics.hbs" afterPath="$PROJECT_DIR$/views/admin_fabrics.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin_materials.hbs" afterPath="$PROJECT_DIR$/views/admin_materials.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NeverLand.iws" />
@@ -30,11 +29,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.6230248">
       <split-first>
         <leaf>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.645161">
-                  <caret line="113" column="42" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="42" />
+                <state vertical-scroll-proportion="0.4075235">
+                  <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -53,11 +52,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin_fabrics.hbs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="admin_fabrics.hbs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/admin_fabrics.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.53023255">
-                  <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+                <state vertical-scroll-proportion="-11.25">
+                  <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                   </folding>
@@ -319,11 +318,11 @@
         <option value="$PROJECT_DIR$/helpers/image_resize.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/admin/product.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/product.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/product.js" />
         <option value="$PROJECT_DIR$/views/admin_materials.hbs" />
         <option value="$PROJECT_DIR$/views/admin_fabrics.hbs" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
   </component>
@@ -764,7 +763,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441547573303</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="revert back thumbnails">
+      <created>1441547713714</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1441547713714</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView">
@@ -812,7 +817,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finish implement add product page, pending test" />
     <MESSAGE value="finish test add fabrics" />
     <MESSAGE value="finish implement fabrics and oak" />
     <MESSAGE value="add mongo db dump and missing css" />
@@ -837,7 +841,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="fix product page bug" />
     <MESSAGE value="fix volume not updating bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix volume not updating bug" />
+    <MESSAGE value="revert back thumbnails" />
+    <option name="LAST_COMMIT_MESSAGE" value="revert back thumbnails" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1222,14 +1227,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.645161">
-          <caret line="113" column="42" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin/material.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1295,11 +1292,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin_fabrics.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53023255">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4075235">
+          <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

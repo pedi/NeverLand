@@ -98,13 +98,13 @@ module.exports = function(passport) {
     Product.findById(id, function(error, product) {
       if (!error && product) {
         // preprocess price groups
-        var fabricGroup = null;
-        var materialGroup = null;
+        var fabricGroup = [];
+        var materialGroup = [];
         for (var i=0; i<product.models.length; i++) {
           var model = product.models[i];
           if (model.fabrics_type && model.fabrics_price.length > 0) {
             model.fabrics = [];
-            fabricGroup = [];
+
             for (var j=0; j<model.fabrics_type.length; j++) {
               model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
               if (model.fabrics_price[j] != -1) {
@@ -127,7 +127,7 @@ module.exports = function(passport) {
             // get related model fabrics data
           }
         }
-        if (fabricGroup) {
+        if (fabricGroup.length) {
           Fabric.find({
             price_group : { $in : fabricGroup}
           }).exec(function(error, fabrics) {
@@ -138,7 +138,7 @@ module.exports = function(passport) {
               res.render("product", {product : product, fabricGroups:fabricGroups});
             } else {next(error);}
           })
-        } else if (materialGroup){
+        } else if (materialGroup.length){
           Material.find({
             price_group : { $in : materialGroup}
           }).exec(function(error, materials) {

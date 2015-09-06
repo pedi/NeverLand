@@ -1,13 +1,14 @@
 <form class="container dropzone">
     <div class="form-group">
         <label for="input-product-name">Product Name</label>
-        <input type="text" class="form-control" id="input-product-name" placeholder="name">
+        <input type="text" class="form-control" id="input-product-name" placeholder="name" value="{{product.name}}">
     </div>
     <div class="form-group">
         <label for="select-category">Category</label>
         <select id="select-category" class="form-control">
             {{#each categories}}
-                <option value="{{this._id}}" data-subcategories="{{this.subcat}}">{{this.name}}</option>
+                <option value="{{this._id}}" data-subcategories="{{this.subcat}}"
+                        {{#if product.category}}{{/if}}>{{this.name}}</option>
             {{/each}}
         </select>
     </div>
@@ -28,7 +29,7 @@
     </div>
     <div class="form-group">
         <label for="textarea-description">Description</label>
-        <textarea rows="5" id="textarea-description" class="form-control" placeholder="input product description here..."></textarea>
+        <textarea rows="5" id="textarea-description" class="form-control" placeholder="input product description here...">{{product.description}}</textarea>
     </div>
     <div class="form-group">
         <label for="checkbox-fabrics">

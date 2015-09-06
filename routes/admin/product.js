@@ -188,6 +188,33 @@ router.post("/add/", productUpload, function(req, res, next) {
   });
 });
 
+router.get("/:id/edit/", function(req, res, next) {
+  var id = req.params.id;
+  Category.find().populate({path : "subcategories"}).exec(function(err, categories) {
+    // preprocess categories
+    for (var i=0; i<categories.length; i++) {
+      var category = categories[i];
+      category.subcat = [];
+      for (var j=0; j<category.subcategories.length; j++) {
+        var subcat = category.subcategories[j];
+        category.subcat.push({
+          id : subcat._id,
+          name : subcat.name
+        })
+      }
+      category.subcat= JSON.stringify(category.subcat);
+    }
+    Product.findById(id, function(error, product) {
+      if (!error) {
+        res.render('add_product', { categories : categories, product : product });
+      } else {
+        next(error);
+      }
+    })
+
+  });
+});
+
 router.post("/:id/delete/", function(req, res, next) {
   var id = req.params.id;
   Product.findByIdAndRemove(id, function(error) {

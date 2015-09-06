@@ -69,34 +69,31 @@
     <hr class="collapse-toggle">
     {{/if}}
 
-    {{#if fabricGroups.length}}
-        <h2 class="h4">Available Fabrics & Leathers</h2>
-        <div class="collapse-wrapper collapsed">
-            <div class="collapse-wrapper-inner">
-            {{#each fabricGroups}}
-                <div class="container row product-container">
-                    <h3 class="h4 price-group-header">{{@key}}</h3>
-                    {{#each this}}<div class="col-xs-4 cold-md-3 fabric-card-wrapper"
-                                       data-fabric-id="{{this._id}}">
-                        <div class="fabric-card" style="background-image:url(/{{this.image.path}})">
-                            <div class="dummy"></div>
-                        </div>
-                        <div class="fabric-name">{{this.name}}</div>
-                        <div class="price-group">Price Group: {{this.price_group}}</div>
-                    </div>{{/each}}
-                </div>
-            {{/each}}
+    <h2 class="h4">Available Fabrics & Leathers</h2>
+    <div class="collapse-wrapper collapsed">
+        <div class="collapse-wrapper-inner">
+        {{#each fabricGroups}}
+            <div class="container product-container">
+                <h3 class="h4 price-group-header">{{@key}}</h3>
+                {{#each this}}<div class="col-xs-4 cold-md-3 fabric-card-wrapper"
+                                   data-fabric-id="{{this._id}}">
+                    <div class="fabric-card" style="background-image:url(/{{this.image.path}})">
+                        <div class="dummy"></div>
+                    </div>
+                    <div class="fabric-name">{{this.name}}</div>
+                    <div class="price-group">Price Group: {{this.price_group}}</div>
+                </div>{{/each}}
             </div>
+        {{/each}}
         </div>
-        <hr class="collapse-toggle">
-    {{/if}}
+    </div>
+    <hr class="collapse-toggle">
 
-    {{#if materialGroups.length}}
-        <h2 class="h4">Available Materials</h2>
-        <div class="collapse-wrapper collapsed">
-            <div class="collapse-wrapper-inner">
+    <h2 class="h4">Available Materials</h2>
+    <div class="collapse-wrapper collapsed">
+        <div class="collapse-wrapper-inner">
             {{#each materialGroups}}
-                <div class="container row product-container">
+                <div class="container product-container">
                     <h3 class="h4 price-group-header">{{@key}}</h3>
                     {{#each this}}<div class="col-xs-4 cold-md-3 material-card-wrapper"
                                        data-material-id="{{this._id}}">
@@ -107,10 +104,9 @@
                     </div>{{/each}}
                 </div>
             {{/each}}
-            </div>
         </div>
-        <hr class="collapse-toggle">
-    {{/if}}
+    </div>
+    <hr class="collapse-toggle">
 
 </div>
 

@@ -57,8 +57,14 @@ body {
 body {
   font-family: kalinga, Helvetica, Arial, sans-serif; }
 
-.product-list a > div {
-  padding-left: 5px;
-  padding-right: 5px; }
+.product-list {
+  margin-left: -20px; }
+  .product-list a > div {
+    padding-left: 5px;
+    padding-right: 0; }
+  .product-list a, .product-list a:hover, .product-list a:active, .product-list a:link, .product-list a:visited {
+    color: #333333; }
+  .product-list .product-name {
+    padding-left: 5px; }
 
 /*# sourceMappingURL=style.css.map */

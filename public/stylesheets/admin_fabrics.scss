@@ -9,12 +9,13 @@
     background-position : center;
   }
   .fabric-name {
-    font-size : 16px;
+    font-size : 14px;
     overflow : hidden;
     text-overflow : ellipsis;
     white-space: nowrap;
   }
   .price-group {
+    font-size : 12px;
     font-weight : bold;
   }
 }

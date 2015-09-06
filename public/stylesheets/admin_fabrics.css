@@ -7,11 +7,12 @@
     .fabric-card-wrapper .fabric-card .dummy {
       padding-top: 100%; }
   .fabric-card-wrapper .fabric-name {
-    font-size: 16px;
+    font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .fabric-card-wrapper .price-group {
+    font-size: 12px;
     font-weight: bold; }
 
 /*# sourceMappingURL=admin_fabrics.css.map */

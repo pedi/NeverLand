@@ -27,9 +27,9 @@
                     <select id="select-model" class="form-control">
                         {{#each product.models}}
                             {{#if this.fabrics}}
-                                <option value="{{this.fabrics}}">{{this.name}}</option>
+                                <option data-volume="{{this.volume}}" value="{{this.fabrics}}">{{this.name}}</option>
                             {{else}}
-                                <option value="{{this.materials}}">{{this.name}}</option>
+                                <option data-volume="{{this.volume}}" value="{{this.materials}}">{{this.name}}</option>
                             {{/if}}
 
                         {{/each}}
@@ -48,8 +48,8 @@
                 </div>
             </div>
             <br>
-            <div>FOB Ningbo price/PC: <span class="navy-blue"><span id="span-price">200</span> US$</span></div>
-            <div>VOL/PC: <span class="navy-blue"><span>2</span> CBM</span></div>
+            <div>FOB Ningbo price/PC: <span class="navy-blue"><span id="span-price"></span> US$</span></div>
+            <div>VOL/PC: <span class="navy-blue"><span id="span-volume"></span> CBM</span></div>
             <div>Delivery Time: <span class="navy-blue">{{product.delivery_time}} days</span></div>
             <br>
             <div>*Any alternation is subject to the final PI we send to you.</div>

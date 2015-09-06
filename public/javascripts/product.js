@@ -34,6 +34,8 @@ function initDom() {
   // init model select handler
   $("#select-model").on("change", function(e) {
     var val = $(e.currentTarget).find(":selected").val();
+    var volume = $(e.currentTarget).find(":selected").attr("data-volume");
+    $("#span-volume").text(volume);
     var options = JSON.parse(val);
     $("#select-finishes").empty();
     for (var i=0; i<options.length; i++) {
@@ -44,7 +46,6 @@ function initDom() {
         optionDom.innerHTML = "Fabric Price " + option.type;
         $("#select-finishes").append(optionDom);
       }
-
     }
     $("#select-finishes").trigger("change");
   });

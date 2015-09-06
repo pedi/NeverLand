@@ -69,9 +69,11 @@
     <hr class="collapse-toggle">
     {{/if}}
 
-
+    {{#if fabricGroups}}
+        <h2 class="h4">Available Fabrics & Leathers</h2>
+    {{/if}}
     {{#each fabricGroups}}
-    <h2 class="h4">Available Fabrics & Leathers</h2>
+
     <div class="collapse-wrapper collapsed">
         <div class="collapse-wrapper-inner">
             <div class="container row product-container">
@@ -89,8 +91,10 @@
     </div>
     <hr class="collapse-toggle">
     {{/each}}
+    {{#if materialGroups}}
+        <h2 class="h4">Available Materials</h2>
+    {{/if}}
     {{#each materialGroups}}
-    <h2 class="h4">Available Materials</h2>
     <div class="collapse-wrapper collapsed">
         <div class="collapse-wrapper-inner">
             <div class="container row product-container">

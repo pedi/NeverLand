@@ -1,18 +1,21 @@
 <!-- Slider main container -->
 <div class="container product-container">
-    <div class="swiper-container row">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            {{#each product.images}}
-                <div class="swiper-slide">
-                    <img src="/{{this.path}}">
-                </div>
-            {{/each}}
+    <div class="row">
+        <div class="swiper-container ">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {{#each product.images}}
+                    <div class="swiper-slide">
+                        <img src="/{{this.path}}">
+                    </div>
+                {{/each}}
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
         </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
     </div>
+
     <h1 class="h3">{{product.name}}</h1>
     <p>{{{product.description}}}</p>
     <hr>

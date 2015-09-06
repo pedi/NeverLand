@@ -1,14 +1,17 @@
-<div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        {{#each banners}}
-            <div class="swiper-slide">
-                <img src="/{{this.image.path}}">
-            </div>
-        {{/each}}
+<div class="row">
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {{#each banners}}
+                <div class="swiper-slide">
+                    <img src="/{{this.image.path}}">
+                </div>
+            {{/each}}
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
 </div>
+
 <script type="text/javascript" src="/javascripts/index.js"></script>

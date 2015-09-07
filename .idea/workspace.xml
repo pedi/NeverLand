@@ -4,14 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/routes/admin/users.js" line="47" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="fix add material bug">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/add_product.hbs" afterPath="$PROJECT_DIR$/views/add_product.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/add_product.js" afterPath="$PROJECT_DIR$/public/javascripts/add_product.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin_products.hbs" afterPath="$PROJECT_DIR$/views/admin_products.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/admin/product.js" afterPath="$PROJECT_DIR$/routes/admin/product.js" />
+    <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/product.hbs" afterPath="$PROJECT_DIR$/views/product.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/product.js" afterPath="$PROJECT_DIR$/public/javascripts/product.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
     </list>
     <ignored path="NeverLand.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +33,8 @@
           <file leaf-file-name="product.hbs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/product.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-74.25">
-                  <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+                <state vertical-scroll-proportion="-20.833334">
+                  <caret line="119" column="20" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -86,11 +82,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="add_product.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="add_product.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6111111">
-                  <caret line="156" column="56" selection-start-line="156" selection-start-column="56" selection-end-line="156" selection-end-column="56" />
+                <state vertical-scroll-proportion="-11.612904">
+                  <caret line="154" column="7" selection-start-line="154" selection-start-column="7" selection-end-line="154" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="product.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/javascripts/product.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.742671">
+                  <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -167,7 +173,7 @@
           <file leaf-file-name="add_product.hbs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/add_product.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3653846">
+                <state vertical-scroll-proportion="0.4078712">
                   <caret line="134" column="50" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="50" />
                   <folding />
                 </state>
@@ -257,7 +263,6 @@
         <option value="$PROJECT_DIR$/routes/admin/material.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/product.scss" />
         <option value="$PROJECT_DIR$/helpers/image_resize.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/product.js" />
         <option value="$PROJECT_DIR$/views/admin_materials.hbs" />
         <option value="$PROJECT_DIR$/views/admin_fabrics.hbs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
@@ -266,7 +271,6 @@
         <option value="$PROJECT_DIR$/views/partials/product/single.hbs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.scss" />
         <option value="$PROJECT_DIR$/public/stylesheets/admin_fabrics.scss" />
-        <option value="$PROJECT_DIR$/views/product.hbs" />
         <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -275,6 +279,8 @@
         <option value="$PROJECT_DIR$/routes/admin/product.js" />
         <option value="$PROJECT_DIR$/views/add_product.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/add_product.js" />
+        <option value="$PROJECT_DIR$/views/product.hbs" />
+        <option value="$PROJECT_DIR$/public/javascripts/product.js" />
       </list>
     </option>
   </component>
@@ -937,7 +943,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441629624337</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="add edit product function">
+      <created>1441637218193</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1441637218193</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView">
@@ -954,8 +966,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26145834" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26145834" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.058951966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -967,7 +980,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -985,7 +997,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add website top, add banners admin" />
     <MESSAGE value="misc updates involving change price group to capital letter, change price ratio threshold" />
     <MESSAGE value="fix bugs that case old data not set category id. a bit refactor of template" />
     <MESSAGE value="revise price calculation logic, implement admin navbar" />
@@ -1010,7 +1021,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="add basic ga tracking" />
     <MESSAGE value="fix add material bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix add material bug" />
+    <MESSAGE value="add edit product function" />
+    <option name="LAST_COMMIT_MESSAGE" value="add edit product function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1337,22 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/product.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-74.25">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/add_product.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1425,16 +1421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.387097">
-          <caret line="353" column="48" selection-start-line="353" selection-start-column="48" selection-end-line="353" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1445,7 +1431,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/add_product.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3653846">
+        <state vertical-scroll-proportion="0.4078712">
           <caret line="134" column="50" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="50" />
           <folding />
         </state>
@@ -1453,8 +1439,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6111111">
-          <caret line="156" column="56" selection-start-line="156" selection-start-column="56" selection-end-line="156" selection-end-column="56" />
+        <state vertical-scroll-proportion="-11.612904">
+          <caret line="154" column="7" selection-start-line="154" selection-start-column="7" selection-end-line="154" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/product.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.833334">
+          <caret line="119" column="20" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.387097">
+          <caret line="353" column="48" selection-start-line="353" selection-start-column="48" selection-end-line="353" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.742671">
+          <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
           <folding />
         </state>
       </provider>

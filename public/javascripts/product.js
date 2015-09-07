@@ -43,7 +43,12 @@ function initDom() {
       if (option.price != -1) {
         var optionDom = document.createElement("option");
         optionDom.value = option.price;
-        optionDom.innerHTML = "Fabric Price " + option.type;
+        var text = option.type;
+        if (window.isFabric) {
+          text = "Fabric Price " + text;
+        }
+        optionDom.innerHTML = text;
+
         $("#select-finishes").append(optionDom);
       }
     }

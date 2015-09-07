@@ -239,7 +239,7 @@ function initDom() {
         alert("please enter delivery time");
         return false;
       }
-      var downloadFile = $("#price-group-a input[name=input-download-link]")[0].files;
+      var downloadFile = $("#price-group-b input[name=input-download-link]")[0].files;
       if (!(downloadFile && downloadFile[0])) {
         alert("please provide download file");
         return false;

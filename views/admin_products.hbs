@@ -7,6 +7,9 @@
                 <a href="/products/{{this._id}}/">{{this.name}}
                     <img src="/{{this.images.0.path}}_thumbnail">
                 </a>
+                <a href="/admin/products/{{this._id}}/edit/">
+                    <button class="btn btn-primary btn-edit-product" >Edit</button>
+                </a>
                 <button class="btn btn-primary btn-delete-product">Delete</button>
             </div>
         {{/each}}

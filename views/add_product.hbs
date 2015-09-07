@@ -1,14 +1,13 @@
 <form class="container dropzone">
     <div class="form-group">
         <label for="input-product-name">Product Name</label>
-        <input type="text" class="form-control" id="input-product-name" placeholder="name" value="{{product.name}}">
+        <input type="text" class="form-control" id="input-product-name" placeholder="name" value="{{raw_product.name}}">
     </div>
     <div class="form-group">
         <label for="select-category">Category</label>
         <select id="select-category" class="form-control">
             {{#each categories}}
-                <option value="{{this._id}}" data-subcategories="{{this.subcat}}"
-                        {{#if product.category}}{{/if}}>{{this.name}}</option>
+                <option value="{{this._id}}" data-subcategories="{{this.subcat}}">{{this.name}}</option>
             {{/each}}
         </select>
     </div>
@@ -24,12 +23,23 @@
         <label for="input-upload-images">Upload Images</label>
         <input type="file" id="input-upload-images" class="form-control" accept="image/*" multiple>
     </div>
+    {{#if raw_product.images.length}}
+    <div id="uploaded-images-preview">
+        {{#each raw_product.images}}
+            <div class="col-xs-4">
+                <img class="img-responsive" src="/{{this.path}}">
+                <button class="btn btn-primary btn-delete-picture" data-image-path="{{this.path}}">Delete</button>
+            </div>
+        {{/each}}
+        <div class="clearfix"></div>
+    </div>
+    {{/if}}
     <div id="upload-images-preview">
 
     </div>
     <div class="form-group">
         <label for="textarea-description">Description</label>
-        <textarea rows="5" id="textarea-description" class="form-control" placeholder="input product description here...">{{product.description}}</textarea>
+        <textarea rows="5" id="textarea-description" class="form-control" placeholder="input product description here...">{{raw_product.description}}</textarea>
     </div>
     <div class="form-group">
         <label for="checkbox-fabrics">
@@ -121,9 +131,16 @@
         <label for="input-available-sizes">Available Sizes</label>
         <input type="file" id="input-available-sizes" accept="image/*" class="form-control">
     </div>
+    {{#if raw_product.available_sizes_image.path}}
+        <div class="uploaded-available-sizes-image">
+            <button class="btn btn-primary btn-delete-available-size-image">Delete</button>
+            <img class="img-responsive" src="/{{raw_product.available_sizes_image.path}}">
+        </div>
+    {{/if}}
+
     <div id="available-sizes-preview"></div>
 
-    <button id="btn-submit" class="btn btn-primary btn-block">Add Product</button>
+    <button id="btn-submit" class="btn btn-primary btn-block">{{#if product}}Edit Product{{else}}Add Product{{/if}}</button>
 </form>
 
 <script type="text/template" id="price-group-a-template">
@@ -157,7 +174,13 @@
         </div>
     </div>
 </script>
-
+<script>
+    {{#if product}}
+        var isEdit = true;
+        var previousProductInfo = '{{{product}}}';
+        var editProductId = "{{raw_product._id}}";
+    {{/if}}
+</script>
 <script type="text/javascript" src="/javascripts/add_product.js"></script>
 
 

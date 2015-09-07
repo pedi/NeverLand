@@ -5,6 +5,58 @@ $(function() {
   initDom();
 });
 
+function initEditProductInfo() {
+  if (window.previousProductInfo) {
+    var info = JSON.parse(previousProductInfo);
+    $("#select-category option").each(function(index) {
+      if ($(this).val() == info.category) {
+        $("#select-category")[0].selectedIndex = index;
+        $("#select-category").trigger("change");
+        $("#select-sub-category option").each(function(index2) {
+          if ($(this).val() == info.subcategory) {
+            $("#select-sub-category")[0].selectedIndex = index2;
+          }
+        })
+      }
+    });
+    // preview check group
+    if (info.models[0].fabrics_type.length) {
+      $("#checkbox-fabrics")[0].checked = true;
+      $(info.models).each(function() {
+        var model = this;
+        var template = $($("#price-group-a-template").html());
+        template.find(".input-model-name").val(model.name);
+        template.find(".input-volume").val(model.volume);
+        $(this.fabrics_type).each(function(index) {
+          if (model.fabrics_price[index] != -1) {
+            template.find(".input-price-"+this.toLowerCase()).val(model.fabrics_price[index])
+          }
+        });
+        $("#price-group-a-wrapper").append(template);
+      });
+      $("#price-group-a input[name=input-price-ratio]").val(info.batch_ratio);
+      $("#price-group-a input[name=input-delivery-time]").val(info.delivery_time);
+    } else {
+      $("#checkbox-material")[0].checked = true;
+      $(info.models).each(function() {
+        var model = this;
+        var template = $($("#price-group-b-template").html());
+        template.find(".input-model-name").val(model.name);
+        template.find(".input-volume").val(model.volume);
+        $(this.material_type).each(function(index) {
+          if (model.material_price[index] != -1) {
+            template.find(".input-price-"+this.toLowerCase()).val(model.material_price[index])
+          }
+        });
+        $("#price-group-b-wrapper").append(template);
+      });
+      $("#price-group-b input[name=input-price-ratio]").val(info.batch_ratio);
+      $("#price-group-b input[name=input-delivery-time]").val(info.delivery_time);
+    }
+
+  }
+}
+
 function initDom() {
   // set up multiple image upload preview
   $("#input-upload-images").on("change", function(e) {
@@ -74,7 +126,7 @@ function initDom() {
   $("#price-group-a-wrapper").on("click", ".btn-delete-price-group", function(e) {
     e.preventDefault();
     var btn = $(e.currentTarget);
-    btn.closest(".price-group-a-row").remove();
+    btn.closest(".price-group-row").remove();
   });
 
   // set up add a new row of price group input button handler
@@ -86,7 +138,42 @@ function initDom() {
   $("#price-group-b-wrapper").on("click", ".btn-delete-price-group", function(e) {
     e.preventDefault();
     var btn = $(e.currentTarget);
-    btn.closest(".price-group-b-row").remove();
+    btn.closest(".price-group-row").remove();
+  });
+
+  initEditProductInfo();
+
+  $(".btn-delete-available-size-image").on("click", function(e) {
+    e.preventDefault();
+    var btn = $(e.currentTarget);
+    var url = "/admin/products/"+window.editProductId+"/available_size_image/delete/";
+    $.post(url, function(e) {
+      if (!e.error) {
+        btn.closest(".uploaded-available-sizes-image").remove();
+      } else {
+        alert(e.error);
+      }
+    }).fail(function(e) {
+      alert("delete image failed due to network error");
+    })
+  });
+
+  $(".btn-delete-picture").on("click", function(e) {
+    e.preventDefault();
+    var btn = $(e.currentTarget);
+    var path = btn.attr("data-image-path");
+    var url = "/admin/products/"+window.editProductId+"/images/delete/";
+    $.post(url, {
+      path : path
+    }, function(e) {
+      if (!e.error) {
+        btn.closest(".col-xs-4").remove();
+      } else {
+        alert(e.error);
+      }
+    }).fail(function(e) {
+      alert("delete image failed due to network error");
+    })
   });
 
   // set up submit btn handler, post to server
@@ -122,7 +209,7 @@ function initDom() {
     }
 
     var images = $("#input-upload-images")[0].files;
-    if (!images || images.length == 0) {
+    if ((!images || images.length == 0) && !window.isEdit) {
       alert("please choose upload images");
       return false;
     } else {
@@ -192,7 +279,7 @@ function initDom() {
         return false;
       }
       var downloadFile = $("#price-group-a input[name=input-download-link]")[0].files;
-      if (!(downloadFile && downloadFile[0])) {
+      if (!(downloadFile && downloadFile[0]) && !window.isEdit) {
         alert("please provide download file");
         return false;
       }
@@ -240,7 +327,7 @@ function initDom() {
         return false;
       }
       var downloadFile = $("#price-group-b input[name=input-download-link]")[0].files;
-      if (!(downloadFile && downloadFile[0])) {
+      if (!(downloadFile && downloadFile[0]) && !window.isEdit) {
         alert("please provide download file");
         return false;
       }
@@ -260,9 +347,14 @@ function initDom() {
       formData.append("available_size_image", files[0]);
     }
 
+    var url = "/admin/products/add/";
+    if (window.isEdit) {
+      url = location.pathname;
+      formData.append("product_id", window.editProductId);
+    }
      // all ready, begin upload
     $.ajax({
-      url : "/admin/products/add/",
+      url : url,
       type : "POST",
       data : formData,
       contentType : false,

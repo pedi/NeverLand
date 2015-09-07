@@ -189,6 +189,136 @@ router.post("/add/", productUpload, function(req, res, next) {
   });
 });
 
+router.post("/:id/edit", productUpload, function(req, res, next) {
+  console.log(req.body);
+  var data = req.body;
+  var id = data.product_id;
+  Product.findById(id, function(error, product) {
+    if (!error) {
+      if (data.name)
+        product.name = data.name;
+      if (data.cat_id)
+        product.category = new mongoose.Types.ObjectId(data.cat_id);
+      if (data.sub_cat_id)
+        product.subcategory = new mongoose.Types.ObjectId(data.sub_cat_id);
+      if (data.description)
+        product.description = data.description;
+      if (data.price_group_ratio)
+        product.batch_ratio = parseFloat(data.price_group_ratio);
+      product.batch_threshold = 10;
+      if (data.price_group_delivery)
+        product.delivery_time = parseInt(data.price_group_delivery);
+
+      if (req.files["images[]"]) {
+        var images = req.files["images[]"];
+        var images_path_list = _.pluck(images, "path");
+        if (images_path_list.length > 0)
+          compressAndResize(images_path_list);
+
+        for (var i=0; i<images.length; i++) {
+          product.images.push({
+            path : images[i].path,
+            content_type : images[i].mimetype
+          });
+        }
+      }
+
+      if (req.files["available_size_image"]) {
+        var availableSizeImage = req.files["available_size_image"];
+        if (availableSizeImage) {
+          product.available_sizes_image = {
+            path : availableSizeImage[0].path,
+            content_type : availableSizeImage[0].mimetype
+          };
+        }
+      }
+
+      if (req.files['download_file']) {
+        var downloadFile = req.files['download_file'];
+        if (downloadFile) {
+          product.download_link = downloadFile[0].path;
+        }
+      }
+
+      if (req.body.price_group == "a") {
+        product.models = [];
+        // fabric types
+        var price_groups = [
+          ["price_group_lll", "LLL"],
+          ["price_group_ll", "LL"],
+          ["price_group_l", "L"],
+          ["price_group_m", "M"],
+          ["price_group_h", "H"],
+          ["price_group_hh", "HH"],
+          ["price_group_hhh", "HHH"]
+        ];
+        for (var j=0; j<req.body['price_group_name'].length; j++) {
+          var model = {
+            name : req.body['price_group_name'][j],
+            volume : parseFloat(req.body['price_group_volume'][j]),
+            fabrics_type : [],
+            fabrics_price : []
+          };
+
+          for (var k=0; k<price_groups.length; k++) {
+            model.fabrics_type.push(price_groups[k][1]);
+            var fabric = {
+              type : price_groups[k][1]
+            };
+            var price = parseFloat(req.body[price_groups[k][0]][j]);
+            if (!isNaN(price))
+              model.fabrics_price.push(price);
+            else
+              model.fabrics_price.push(-1);
+          }
+          product.models.push(model)
+        }
+      } else if (req.body.price_group == "b") {
+        product.models = []
+        // fabric types
+        var price_groups = [
+          ["price_group_oak", "oak"],
+          ["price_group_elm", "elm"],
+          ["price_group_pine", "pine"]
+        ];
+        for (var j=0; j<req.body['price_group_name'].length; j++) {
+          var model = {
+            name : req.body['price_group_name'][j],
+            volume : parseFloat(req.body['price_group_volume'][j]),
+            material_type : [],
+            material_price : []
+          };
+          for (var k=0; k<price_groups.length; k++) {
+            model.material_type.push(price_groups[k][1]);
+            var fabric = {
+              type : price_groups[k][1],
+            };
+            var price = parseFloat(req.body[price_groups[k][0]][j]);
+            if (!isNaN(price))
+              model.material_price.push(price);
+            else
+              model.material_price.push(-1);
+          }
+          product.models.push(model)
+        }
+      }
+      product.save(function(err, product) {
+        if (!err) {
+          //console.log(product);
+          res.json({
+            "success" : true
+          });
+        } else {
+          next(err);
+        }
+      });
+      //res.render('add_product', { categories : categories, product : JSON.stringify(product), raw_product : product });
+    } else {
+      next(error);
+    }
+  });
+});
+
 router.get("/:id/edit/", function(req, res, next) {
   var id = req.params.id;
   Category.find().populate({path : "subcategories"}).exec(function(err, categories) {
@@ -207,13 +337,57 @@ router.get("/:id/edit/", function(req, res, next) {
     }
     Product.findById(id, function(error, product) {
       if (!error) {
-        res.render('add_product', { categories : categories, product : product });
+        res.render('add_product', { categories : categories, product : JSON.stringify(product), raw_product : product });
       } else {
         next(error);
       }
     })
 
   });
+});
+
+router.post("/:id/available_size_image/delete/", function(req, res, next) {
+  var id = req.params.id;
+  var path = req.body.path;
+  Product.findById(id, function(error, product) {
+    if (!error) {
+      product.available_sizes_image = undefined;
+      product.save(function(error) {
+        if (!error) {
+          res.json({"success" : true});
+        } else {
+          next(error);
+        }
+      });
+    } else {
+      next(error);
+    }
+  })
+});
+
+router.post("/:id/images/delete/", function(req, res, next) {
+  var id = req.params.id;
+  var path = req.body.path;
+  Product.findById(id, function(error, product) {
+    if (!error) {
+      for (var i=0; i<product.images.length; i++) {
+        console.log(product.images[i].path);
+        console.log(path);
+        if (product.images[i].path == path) {
+          product.images.pull(product.images[i]._id);
+        }
+      }
+      product.save(function(error) {
+        if (!error) {
+          res.json({"success" : true});
+        } else {
+          next(error);
+        }
+      });
+    } else {
+      next(error);
+    }
+  })
 });
 
 router.post("/:id/delete/", function(req, res, next) {

@@ -8,7 +8,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/add_download.css" afterPath="$PROJECT_DIR$/public/stylesheets/add_download.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/add_download.scss" afterPath="$PROJECT_DIR$/public/stylesheets/add_download.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/downloads.hbs" afterPath="$PROJECT_DIR$/views/downloads.hbs" />
     </list>
     <ignored path="NeverLand.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,8 +103,8 @@
       <file leaf-file-name="add_download.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/add_download.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="420">
+              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -1696,11 +1695,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471698780731</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="tuning UI">
+      <created>1471698997763</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1471698997763</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1764000" />
+    <option name="totallyTimeSpent" value="1869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1747,7 +1753,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="project progress update" />
     <MESSAGE value="progress update, add collapse animation" />
     <MESSAGE value="variouis bug fixes" />
     <MESSAGE value="ui fixes" />
@@ -1772,7 +1777,8 @@
     <MESSAGE value="add missing css" />
     <MESSAGE value="tuning css" />
     <MESSAGE value="add download page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add download page" />
+    <MESSAGE value="tuning UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="tuning UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2185,8 +2191,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/add_download.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state relative-caret-position="420">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding />
         </state>
       </provider>

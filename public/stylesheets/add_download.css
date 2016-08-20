@@ -14,7 +14,9 @@
       width: 25px !important; }
 
 .download-name {
+  display: inline-block;
   overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  vertical-align: middle; }
 
 /*# sourceMappingURL=add_download.css.map */

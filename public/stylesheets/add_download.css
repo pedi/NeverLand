@@ -9,6 +9,7 @@
   .download-wrapper img {
     width: 100%; }
   .download-wrapper a {
+    text-decoration: none;
     vertical-align: middle; }
     .download-wrapper a > img {
       width: 25px !important; }

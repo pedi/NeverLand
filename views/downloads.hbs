@@ -3,9 +3,13 @@
     <div class="col-xs-4 download-wrapper">
       <img src="/{{this.image.path}}_thumbnail">
       <div>
-        <a {{#if user}}href="/{{this.download_link}}" download{{else}}{{/if}}>
+      {{#if user}}
+        <a href="/{{this.download_link}}" download>
           <img src="/images/pdf.jpg">
         </a>
+      {{else}}
+        <a><img src="/images/pdf.jpg"></a>
+      {{/if}}
         <div class="download-name">{{this.name}}</div>
       </div>
     </div>

@@ -127,7 +127,18 @@ module.exports = function(passport) {
             // get related model fabrics data
           }
         }
-        if (fabricGroup.length) {
+        // if a product is in sofa, chair, bedheads category, then need to show all fabrics and leathers
+        if (['Sofas', 'Chairs', 'Bedheads'].indexOf(product.subcategory.name) !== -1) {
+          Fabric.find({}).exec(function(error, fabrics) {
+            if (error) {
+              next(error);
+            }
+            var fabricGroups = _.groupBy(fabrics, function(fabric) {
+              return fabric.type;
+            });
+            res.render("product", {product : product, fabricGroups:fabricGroups});
+          })
+        } else if (fabricGroup.length) {
           Fabric.find({
             price_group : { $in : fabricGroup}
           }).exec(function(error, fabrics) {

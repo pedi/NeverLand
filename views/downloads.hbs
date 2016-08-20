@@ -4,18 +4,13 @@
       <img src="/{{this.image.path}}_thumbnail">
       <div>
         {{#if user}}
-          <a href="/{{this.download_link}}" download>
-            <img src="/images/pdf.jpg">
-          </a>
-        {{else}}
-          <a>
-            <img src="/images/pdf.jpg">
-          </a>
+          test
+
         {{/if}}
         <div class="download-name">{{this.name}}</div>
       </div>
     </div>
   {{/each}}
   <div class="clearfix"></div>
-
+  {{#if user}}test{{/if}}
 </div>

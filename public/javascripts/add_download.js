@@ -59,6 +59,13 @@
       }
       formData.append("download_file", downloadFile[0]);
 
+      var name = $("input#input-download-name").val();
+      if (!name) {
+        alert("Please enter download name");
+        return false;
+      }
+      formData.append("name", name);
+
       // all ready, begin upload
       $.ajax({
         url : "/admin/downloads/add/",

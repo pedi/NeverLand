@@ -86,6 +86,16 @@ module.exports = function(passport) {
     });
   });
 
+  router.get('/download/', function(req, res, next) {
+    Downloadable.find().exec(function(err, downloads) {
+      if (err) {
+        next(err);
+      }
+      downloads = _.sortBy(downloads, 'name');
+      res.render("downloads", {downloads : downloads});
+    });
+  });
+
   router.use(function(req, res, next) {
     if (req.isAuthenticated()) {
       next();
@@ -196,16 +206,6 @@ module.exports = function(passport) {
       }
       products = _.sortBy(products, 'name');
       res.render("category", {products : products});
-    });
-  });
-
-  router.get('/download/', function(req, res, next) {
-    Downloadable.find().exec(function(err, downloads) {
-      if (err) {
-        next(err);
-      }
-      downloads = _.sortBy(downloads, 'name');
-      res.render("downloads", {downloads : downloads});
     });
   });
 

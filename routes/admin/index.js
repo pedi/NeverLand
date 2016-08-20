@@ -13,6 +13,7 @@ var banner = require("./banner");
 var contact = require("./contact");
 var about = require("./about");
 var users = require("./users");
+var download = require("./download");
 
 router.use(function(req, res, next) {
   if (req.user && req.user.super_user) {
@@ -34,5 +35,6 @@ router.use("/banners/", banner);
 router.use("/contact/", contact);
 router.use("/about/", about);
 router.use("/users/", users);
+router.use("/downloads/", download);
 
 module.exports = router;

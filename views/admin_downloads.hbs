@@ -1,0 +1,33 @@
+<div>
+  <h1>Downloads</h1>
+  <div class="admin-download-previews">
+    {{#each downloads}}
+      <div class="col-xs-4 download-wrapper">
+        <img src="/{{this.image.path}}_thumbnail">
+        <div>
+          <a href="/{{this.download_link}}">
+            <img src="/images/pdf.jpg">
+          </a>
+          {{this.name}}
+        </div>
+        <button class="btn btn-default btn-delete-download" data-download-id="{{this._id}}">Remove</button>
+      </div>
+    {{/each}}
+    <div class="clearfix"></div>
+  </div>
+
+  <h2>Add New Download</h2>
+  <div class="form-group">
+    <label for="upload-file">Upload Image</label>
+    <input class="form-control" name="upload-file" type="file" accept="application/pdf">
+  </div>
+  <div class="form-group">
+    <label for="upload-images">Upload Image</label>
+    <input class="form-control" name="upload-images" type="file" accept="image/*">
+  </div>
+  <div class="download-image-preview">
+
+  </div>
+  <button id="btn-add-new-download" class="btn btn-primary btn-block">Add</button>
+</div>
+<script type="text/javascript" src="/javascripts/add_download.js"></script>

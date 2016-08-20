@@ -1,4 +1,5 @@
 .admin-download-previews {
+	margin-top: 30px;
 	.col-xs-4 {
 		img {
 			width : 100%;
@@ -18,4 +19,9 @@
 			width: 25px !important;
 		}
 	}
+}
+
+.download-name {
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

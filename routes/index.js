@@ -188,6 +188,16 @@ module.exports = function(passport) {
     }
   });
 
+  router.get('/new_arrivals/', function(req, res, next) {
+    Product.find({new_arrival: true}).exec(function(err, products) {
+      if (err) {
+        next(err);
+      }
+      products = _.sortBy(products, 'name');
+      res.render("category", {products : products});
+    });
+  });
+
   router.get("/category/:sub_category_name/", function(req, res, next) {
     var categoryName = req.params.sub_category_name;
     if (categoryName) {

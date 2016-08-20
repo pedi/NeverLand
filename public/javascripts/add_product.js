@@ -19,6 +19,9 @@ function initEditProductInfo() {
         })
       }
     });
+    if (info.new_arrival) {
+      $("#checkbox-new-arrival")[0].checked = true;
+    }
     // preview check group
     if (info.models[0].fabrics_type.length) {
       $("#checkbox-fabrics")[0].checked = true;
@@ -225,6 +228,9 @@ function initDom() {
     } else {
       formData.append("description", description);
     }
+
+    var isNewArrival = $("#checkbox-new-arrival").is(':checked') ? 1 : 0;
+    formData.append("new_arrival", isNewArrival);
 
     // price group related
     var chooseGroupA = $("#checkbox-fabrics")[0].checked;

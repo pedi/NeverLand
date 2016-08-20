@@ -29,7 +29,8 @@ var schema = new mongoose.Schema({
       material_type : [String],
       material_price : [Number]
     }
-  ]
+  ],
+  new_arrival: Boolean,
 }, {
   autoIndex : false
 });

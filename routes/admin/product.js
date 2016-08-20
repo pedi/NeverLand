@@ -101,6 +101,7 @@ router.post("/add/", productUpload, function(req, res, next) {
     });
   }
   product.description = req.body.description;
+  product.new_arrival = parseInt(req.body.new_arrival);
   product.batch_ratio = parseFloat(req.body.price_group_ratio);
   product.batch_threshold = 10;
   product.delivery_time = parseInt(req.body.price_group_delivery);
@@ -203,6 +204,7 @@ router.post("/:id/edit", productUpload, function(req, res, next) {
         product.subcategory = new mongoose.Types.ObjectId(data.sub_cat_id);
       if (data.description)
         product.description = data.description;
+      product.new_arrival = parseInt(req.body.new_arrival);
       if (data.price_group_ratio)
         product.batch_ratio = parseFloat(data.price_group_ratio);
       product.batch_threshold = 10;

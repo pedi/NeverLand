@@ -10,6 +10,18 @@
             <a class="navbar-brand col-xs-4" href="/"><img src="/images/logo.jpg"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
+            {{#if user}}
+              <ul class="nav navbar-nav">
+                {{#if user.super_user}}
+                  <li><a href="/admin/">Admin</a></li>
+                {{/if}}
+                <li><a href="/logout/">Logout</a></li>
+              </ul>
+            {{else}}
+              <ul class="nav navbar-nav">
+                <li><a href="/login/">Login</a></li>
+              </ul>
+            {{/if}}
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle category-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogue <span class="caret"></span></a>
@@ -36,18 +48,7 @@
                 <li><a href="/about/">About</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
-            {{#if user}}
-            <ul class="nav navbar-nav">
-                {{#if user.super_user}}
-                    <li><a href="/admin/">Admin</a></li>
-                {{/if}}
-                <li><a href="/logout/">Logout</a></li>
-            </ul>
-            {{else}}
-                <ul class="nav navbar-nav">
-                    <li><a href="/login/">Login</a></li>
-                </ul>
-            {{/if}}
+
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>

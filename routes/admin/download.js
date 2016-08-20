@@ -64,10 +64,10 @@ router.post("/add/", downloadUpload, function(req, res, next) {
   var images_path_list = _.pluck(images, "path");
   if (images_path_list.length > 0) {
     compressAndResize(images_path_list);
-    download.image.push({
+    download.image = {
       path : images[0].path,
       content_type : images[0].mimetype
-    });
+    };
   }
 
   var downloadFile = req.files['download_file'];

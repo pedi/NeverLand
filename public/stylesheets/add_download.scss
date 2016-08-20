@@ -8,13 +8,14 @@
 }
 
 .download-wrapper {
+	margin-bottom: 20px;
 	img {
 		width: 100%;
 	}
 	& a {
 		vertical-align: middle;
 		& > img {
-			width: 20px !important;
+			width: 25px !important;
 		}
 	}
 }

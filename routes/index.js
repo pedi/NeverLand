@@ -5,6 +5,7 @@ var Banner = require("../models/Banner");
 var Product = require("../models/Product");
 var Fabric = require("../models/Fabric");
 var Material = require("../models/Material");
+var Downloadable = require("../models/Downloadable");
 var User = require("../models/User");
 var Intro = require("../models/Intro");
 var router = express.Router();
@@ -195,6 +196,16 @@ module.exports = function(passport) {
       }
       products = _.sortBy(products, 'name');
       res.render("category", {products : products});
+    });
+  });
+
+  router.get('/download/', function(req, res, next) {
+    Downloadable.find().exec(function(err, downloads) {
+      if (err) {
+        next(err);
+      }
+      downloads = _.sortBy(downloads, 'name');
+      res.render("downloads", {downloads : downloads});
     });
   });
 

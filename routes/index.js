@@ -128,41 +128,43 @@ module.exports = function(passport) {
           }
         }
         // if a product is in sofa, chair, bedheads category, then need to show all fabrics and leathers
-        if (['Sofas', 'Chairs', 'Bedheads'].indexOf(product.subcategory.name) !== -1) {
-          Fabric.find({}).exec(function(error, fabrics) {
-            if (error) {
-              next(error);
-            }
-            var fabricGroups = _.groupBy(fabrics, function(fabric) {
-              return fabric.type;
-            });
-            res.render("product", {product : product, fabricGroups:fabricGroups});
-          })
-        } else if (fabricGroup.length) {
-          Fabric.find({
-            price_group : { $in : fabricGroup}
-          }).exec(function(error, fabrics) {
-            if (!error) {
+        SubCategory.findById(product.subcategory, function(error, subcategory) {
+          if (['Sofas', 'Chairs', 'Bedheads'].indexOf(subcategory.name) !== -1) {
+            Fabric.find({}).exec(function(error, fabrics) {
+              if (error) {
+                next(error);
+              }
               var fabricGroups = _.groupBy(fabrics, function(fabric) {
                 return fabric.type;
               });
               res.render("product", {product : product, fabricGroups:fabricGroups});
-            } else {next(error);}
-          })
-        } else if (materialGroup.length){
-          Material.find({
-            price_group : { $in : materialGroup}
-          }).exec(function(error, materials) {
-            if (!error) {
-              var materialGroups = _.groupBy(materials, function(material) {
-                return material.price_group;
-              });
-              res.render("product", {product : product, materialGroups:materialGroups});
-            } else {next(error);}
-          })
-        } else {
-          res.render("product", {product : product});
-        }
+            })
+          } else if (fabricGroup.length) {
+            Fabric.find({
+              price_group : { $in : fabricGroup}
+            }).exec(function(error, fabrics) {
+              if (!error) {
+                var fabricGroups = _.groupBy(fabrics, function(fabric) {
+                  return fabric.type;
+                });
+                res.render("product", {product : product, fabricGroups:fabricGroups});
+              } else {next(error);}
+            })
+          } else if (materialGroup.length){
+            Material.find({
+              price_group : { $in : materialGroup}
+            }).exec(function(error, materials) {
+              if (!error) {
+                var materialGroups = _.groupBy(materials, function(material) {
+                  return material.price_group;
+                });
+                res.render("product", {product : product, materialGroups:materialGroups});
+              } else {next(error);}
+            })
+          } else {
+            res.render("product", {product : product});
+          }
+        })
       } else {
         next(error);
       }

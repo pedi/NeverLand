@@ -4,10 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/routes/admin/users.js" line="47" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
+    <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="add missing form field">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/add_download.js" afterPath="$PROJECT_DIR$/public/javascripts/add_download.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin_downloads.hbs" afterPath="$PROJECT_DIR$/views/admin_downloads.hbs" />
     </list>
     <ignored path="NeverLand.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,21 +49,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_download.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add_download.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/add_download.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+            <state relative-caret-position="300">
+              <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="download.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="download.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin/download.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="100">
+              <caret line="66" column="18" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Downloadable.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Downloadable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -85,16 +94,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
               <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/header/base.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -123,8 +122,8 @@
       <file leaf-file-name="add_product.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="342" column="56" selection-start-line="342" selection-start-column="6" selection-end-line="342" selection-end-column="56" />
+            <state relative-caret-position="190">
+              <caret line="342" column="21" selection-start-line="342" selection-start-column="21" selection-end-line="342" selection-end-column="56" />
               <folding>
                 <marker date="1471672159000" expanded="true" signature="12842:12850" placeholder="{...}" />
               </folding>
@@ -148,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/category.hbs" />
         <option value="$PROJECT_DIR$/models/Intro.js" />
         <option value="$PROJECT_DIR$/models/Image.js" />
         <option value="$PROJECT_DIR$/views/contact.hbs" />
@@ -198,6 +196,7 @@
         <option value="$PROJECT_DIR$/views/partials/header/admin.hbs" />
         <option value="$PROJECT_DIR$/views/admin_downloads.hbs" />
         <option value="$PROJECT_DIR$/views/add_banner.hbs" />
+        <option value="$PROJECT_DIR$/models/Downloadable.js" />
         <option value="$PROJECT_DIR$/public/javascripts/add_download.js" />
       </list>
     </option>
@@ -1296,6 +1295,9 @@
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -1322,6 +1324,26 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
       <method />
     </configuration>
     <configuration default="false" name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="$USER_HOME$/.nvm/versions/node/v0.12.4/bin/node" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$">
@@ -1632,11 +1654,18 @@
       <option name="project" value="LOCAL" />
       <updated>1441637218193</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="add missing form field">
+      <created>1471683677899</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1471683677899</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="707000" />
+    <option name="totallyTimeSpent" value="956000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1683,7 +1712,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="misc updates involving change price group to capital letter, change price ratio threshold" />
     <MESSAGE value="fix bugs that case old data not set category id. a bit refactor of template" />
     <MESSAGE value="revise price calculation logic, implement admin navbar" />
     <MESSAGE value="limit upload image size to 500kb" />
@@ -1708,7 +1736,8 @@
     <MESSAGE value="add basic ga tracking" />
     <MESSAGE value="fix add material bug" />
     <MESSAGE value="add edit product function" />
-    <option name="LAST_COMMIT_MESSAGE" value="add edit product function" />
+    <MESSAGE value="add missing form field" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing form field" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1750,13 +1779,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/login.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="10" column="112" selection-start-line="10" selection-start-column="112" selection-end-line="10" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/header/admin.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -2105,16 +2127,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="342" column="56" selection-start-line="342" selection-start-column="6" selection-end-line="342" selection-end-column="56" />
-          <folding>
-            <marker date="1471672159000" expanded="true" signature="12842:12850" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin_downloads.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -2123,18 +2135,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/add_download.js">
+    <entry file="file://$PROJECT_DIR$/models/Downloadable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        <state relative-caret-position="60">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin/download.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="100">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/add_product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="342" column="21" selection-start-line="342" selection-start-column="21" selection-end-line="342" selection-end-column="56" />
+          <folding>
+            <marker date="1471672159000" expanded="true" signature="12842:12850" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/add_download.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
           <folding />
         </state>
       </provider>

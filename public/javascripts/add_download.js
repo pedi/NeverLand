@@ -51,6 +51,14 @@
       } else {
         formData.append("image", images[0], images[0].name);
       }
+
+      var downloadFile = $("input[name=upload-file]")[0].files;
+      if (!(downloadFile && downloadFile[0])) {
+        alert("please provide download file");
+        return false;
+      }
+      formData.append("download_file", downloadFile[0]);
+
       // all ready, begin upload
       $.ajax({
         url : "/admin/downloads/add/",

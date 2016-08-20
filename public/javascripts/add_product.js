@@ -211,13 +211,6 @@ function initDom() {
       formData.append("sub_cat_id", subProductCategoryId);
     }
 
-    var downloadFile = $("input[name=input-download-link]")[0].files;
-    if (!(downloadFile && downloadFile[0]) && !window.isEdit) {
-      alert("please provide download file");
-      return false;
-    }
-    formData.append("download_file", downloadFile[0]);
-
     var images = $("#input-upload-images")[0].files;
     if ((!images || images.length == 0) && !window.isEdit) {
       alert("please choose upload images");
@@ -291,9 +284,15 @@ function initDom() {
         alert("please enter delivery time");
         return false;
       }
+      var downloadFile = $("#price-group-a input[name=input-download-link]")[0].files;
+      if (!(downloadFile && downloadFile[0]) && !window.isEdit) {
+        alert("please provide download file");
+        return false;
+      }
       formData.append("price_group", "a");
       formData.append("price_group_ratio", priceRatio);
       formData.append("price_group_delivery", deliveryTime);
+      formData.append("download_file", downloadFile[0]);
     } else {
       // choose price group b
       var priceGroups = $("#price-group-b-wrapper .price-group-row");
@@ -333,9 +332,15 @@ function initDom() {
         alert("please enter delivery time");
         return false;
       }
+      var downloadFile = $("#price-group-b input[name=input-download-link]")[0].files;
+      if (!(downloadFile && downloadFile[0]) && !window.isEdit) {
+        alert("please provide download file");
+        return false;
+      }
       formData.append("price_group", "b");
       formData.append("price_group_ratio", priceRatio);
       formData.append("price_group_delivery", deliveryTime);
+      formData.append("download_file", downloadFile[0]);
     }
 
     // available sizes

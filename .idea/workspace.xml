@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/add_download.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/add_download.css" afterPath="$PROJECT_DIR$/public/stylesheets/add_download.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/add_download.scss" afterPath="$PROJECT_DIR$/public/stylesheets/add_download.scss" />
     </list>
     <ignored path="NeverLand.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +73,8 @@
       <file leaf-file-name="add_download.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/add_download.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="240">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -147,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/models/Image.js" />
         <option value="$PROJECT_DIR$/views/contact.hbs" />
         <option value="$PROJECT_DIR$/views/admin_about.hbs" />
         <option value="$PROJECT_DIR$/views/about.hbs" />
@@ -198,6 +198,7 @@
         <option value="$PROJECT_DIR$/models/Downloadable.js" />
         <option value="$PROJECT_DIR$/public/javascripts/add_download.js" />
         <option value="$PROJECT_DIR$/routes/admin/download.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/add_download.scss" />
       </list>
     </option>
   </component>
@@ -1675,11 +1676,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471698342134</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="add missing css">
+      <created>1471698438136</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1471698438136</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1250000" />
+    <option name="totallyTimeSpent" value="1346000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1726,7 +1734,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="limit upload image size to 500kb" />
     <MESSAGE value="progress update" />
     <MESSAGE value="add upload file function" />
     <MESSAGE value="project progress update" />
@@ -1751,7 +1758,8 @@
     <MESSAGE value="add missing form field" />
     <MESSAGE value="add missing field" />
     <MESSAGE value="turning UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="turning UI" />
+    <MESSAGE value="add missing css" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2059,14 +2067,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2159,10 +2159,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/add_download.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="240">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding />
         </state>
       </provider>

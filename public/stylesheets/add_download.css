@@ -7,6 +7,6 @@
 .download-wrapper a {
   vertical-align: middle; }
   .download-wrapper a > img {
-    width: 20px; }
+    width: 20px !important; }
 
 /*# sourceMappingURL=add_download.css.map */

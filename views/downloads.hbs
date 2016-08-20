@@ -1,16 +1,29 @@
 <div class="admin-download-previews">
-  {{#each downloads}}
-    <div class="col-xs-4 download-wrapper">
-      <img src="/{{this.image.path}}_thumbnail">
-      <div>
-        {{#if user}}
-          test
 
-        {{/if}}
-        <div class="download-name">{{this.name}}</div>
-      </div>
-    </div>
-  {{/each}}
   <div class="clearfix"></div>
-  {{#if user}}test{{/if}}
+  {{#if user}}
+    {{#each downloads}}
+      <div class="col-xs-4 download-wrapper">
+        <img src="/{{this.image.path}}_thumbnail">
+        <div>
+          <a href="/{{this.download_link}}" download>
+            <img src="/images/pdf.jpg">
+          </a>
+          <div class="download-name">{{this.name}}</div>
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    {{#each downloads}}
+      <div class="col-xs-4 download-wrapper">
+        <img src="/{{this.image.path}}_thumbnail">
+        <div>
+          <a>
+            <img src="/images/pdf.jpg">
+          </a>
+          <div class="download-name">{{this.name}}</div>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
 </div>

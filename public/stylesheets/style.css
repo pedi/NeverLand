@@ -70,4 +70,9 @@ body {
   .product-list .product-name {
     margin-top: 5px; }
 
+.nav__new-arrival-link {
+  color: red !important; }
+  .nav__new-arrival-link > b {
+    border-left-color: red; }
+
 /*# sourceMappingURL=style.css.map */

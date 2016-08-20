@@ -11,8 +11,9 @@
   .material-name {
     font-size : 16px;
     overflow : hidden;
-    text-overflow : ellipsis;
-    white-space: nowrap;
+    height: 40px;
+    word-wrap: break-word;
+    margin: 5px 0 10px;
   }
   .material-group {
     font-weight : bold;

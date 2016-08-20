@@ -10,9 +10,10 @@
   }
   .fabric-name {
     font-size : 14px;
-    overflow : hidden;
-    text-overflow : ellipsis;
-    white-space: nowrap;
+    height: 40px; // always two lines display
+    overflow: hidden;
+    word-wrap: break-word;
+    margin: 5px 0 10px;
   }
   .price-group {
     font-size : 12px;

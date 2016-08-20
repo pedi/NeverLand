@@ -8,9 +8,10 @@
       padding-top: 100%; }
   .fabric-card-wrapper .fabric-name {
     font-size: 14px;
+    height: 40px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
+    word-wrap: break-word;
+    margin: 5px 0 10px; }
   .fabric-card-wrapper .price-group {
     font-size: 12px;
     font-weight: bold; }

@@ -1,0 +1,12 @@
+.admin-download-previews .col-xs-4 img {
+  width: 100%;
+  padding: 4px; }
+
+.download-wrapper img {
+  width: 100%; }
+.download-wrapper a {
+  vertical-align: middle; }
+  .download-wrapper a > img {
+    width: 20px; }
+
+/*# sourceMappingURL=add_download.css.map */

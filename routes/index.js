@@ -97,6 +97,17 @@ module.exports = function(passport) {
     });
   });
 
+  router.get("/n_studio/:id/", function(req, res, next) {
+    var id = req.params.id;
+    NstudioProduct.findById(id, function(error, product) {
+      if (!error && product) {
+        res.render("nstudio_product", {product : product});
+      } else {
+        next(error);
+      }
+    })
+  });
+
   router.get('/n_studio/', function(req, res, next) {
     NstudioProduct.find().exec(function(err, products) {
       if (err) {

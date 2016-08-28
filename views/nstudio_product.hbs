@@ -1,0 +1,26 @@
+<!-- Slider main container -->
+<div class="container product-container">
+  <div class="row">
+    <div class="swiper-container ">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {{#each product.images}}
+          <div class="swiper-slide">
+            <img src="/{{this.path}}">
+          </div>
+        {{/each}}
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <h1 class="h3">{{product.name}}</h1>
+  <p>{{{product.description}}}</p>
+  <hr>
+  <h1 class="h3">{{product.name_cn}}</h1>
+  <p>{{{product.description_cn}}}</p>
+
+</div>
+<script type="text/javascript" src="/javascripts/nstudio_product.js"></script>

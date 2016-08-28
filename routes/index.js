@@ -6,6 +6,7 @@ var Product = require("../models/Product");
 var Fabric = require("../models/Fabric");
 var Material = require("../models/Material");
 var Downloadable = require("../models/Downloadable");
+var NstudioProduct = require("../models/NstudioProduct");
 var User = require("../models/User");
 var Intro = require("../models/Intro");
 var router = express.Router();
@@ -93,6 +94,16 @@ module.exports = function(passport) {
       }
       downloads = _.sortBy(downloads, 'name');
       res.render("downloads", {downloads : downloads});
+    });
+  });
+
+  router.get('/n_studio/', function(req, res, next) {
+    NstudioProduct.find().exec(function(err, products) {
+      if (err) {
+        next(err);
+      }
+      products = _.sortBy(products, 'name');
+      res.render("nstudio_products", {products : products});
     });
   });
 

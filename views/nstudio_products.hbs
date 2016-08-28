@@ -1,0 +1,10 @@
+{{#if products}}
+  <div class="product-list row">
+    <a href="/products/{{this._id}}"><div class="col-xs-6 col-md-4 product-card">
+      <div class="img-responsive nstudio-image" style="background-image: url(/{{this.images.0.path}})"></div>
+      <div class="product-name">{{this.name}}</div>
+    </div></a>
+  </div>
+{{else}}
+  no product found
+{{/if}}

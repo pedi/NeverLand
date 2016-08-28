@@ -55,9 +55,11 @@ body {
     border-left-color: red;
   }
 }
-
+.nav.navbar-nav.navbar--user {
+  float: left;
+}
 .nav.navbar-nav {
-  float: right !important;
+  float: right
 }
 
 .navbar--admin {

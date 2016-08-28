@@ -75,8 +75,11 @@ body {
   .nav__new-arrival-link > b {
     border-left-color: red; }
 
+.nav.navbar-nav.navbar--user {
+  float: left; }
+
 .nav.navbar-nav {
-  float: right !important; }
+  float: right; }
 
 .navbar--admin {
   font-size: 12px; }

@@ -9,6 +9,10 @@ function initDom() {
     loop: true,
     // If we need pagination
     pagination: '.swiper-pagination',
-    paginationClickable : "true"
+    paginationClickable : "true",
+
+    // Navigation arrows
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
   });
 }

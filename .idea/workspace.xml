@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d778a914-b138-4dc5-8ca2-893ded7623f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin_nstudio.hbs" afterPath="$PROJECT_DIR$/views/admin_nstudio.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/admin/nstudio.js" afterPath="$PROJECT_DIR$/routes/admin/nstudio.js" />
     </list>
     <ignored path="NeverLand.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,16 +32,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
               <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_contact.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin_contact.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -107,22 +97,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_nstudio_products.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin_nstudio_products.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/admin_nstudio_products.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nstudio.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nstudio.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/admin/nstudio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="140" column="37" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="37" />
+            <state relative-caret-position="405">
+              <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="324" column="25" selection-start-line="324" selection-start-column="2" selection-end-line="324" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#39#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,12 +190,12 @@
         <option value="$PROJECT_DIR$/models/NstudioProduct.js" />
         <option value="$PROJECT_DIR$/views/add_nstudio_product.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/add_nstudio_product.js" />
-        <option value="$PROJECT_DIR$/routes/admin/nstudio.js" />
         <option value="$PROJECT_DIR$/routes/admin/index.js" />
         <option value="$PROJECT_DIR$/views/partials/header/admin.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/admin_nstudio_products.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.scss" />
         <option value="$PROJECT_DIR$/views/admin_nstudio.hbs" />
+        <option value="$PROJECT_DIR$/routes/admin/nstudio.js" />
       </list>
     </option>
   </component>
@@ -599,14 +601,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1440317815543</updated>
-      <workItem from="1472368285185" duration="1748000" />
-    </task>
-    <task id="LOCAL-00016" summary="revise price calculation logic, implement admin navbar">
-      <created>1441288314516</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1441288314516</updated>
+      <workItem from="1472368285185" duration="1806000" />
     </task>
     <task id="LOCAL-00017" summary="limit upload image size to 500kb">
       <created>1441363391111</created>
@@ -944,11 +939,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472370249427</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="fix delete nstudio products">
+      <created>1472370317531</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1472370317531</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6784000" />
+    <option name="totallyTimeSpent" value="6842000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -995,7 +997,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update ui" />
     <MESSAGE value="tweak minor ui" />
     <MESSAGE value="add basic ga tracking" />
     <MESSAGE value="fix add material bug" />
@@ -1020,7 +1021,8 @@
     <MESSAGE value="make admin navbar text smaller so that it can fit into one line" />
     <MESSAGE value="add nstudio products page" />
     <MESSAGE value="fix linking" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix linking" />
+    <MESSAGE value="fix delete nstudio products" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix delete nstudio products" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1320,16 +1322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="405" column="24" selection-start-line="3" selection-start-column="0" selection-end-line="405" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1402,14 +1394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin/nstudio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="140" column="37" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/add_nstudio_product.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="613">
@@ -1436,8 +1420,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/admin_nstudio_products.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="165">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="324" column="25" selection-start-line="324" selection-start-column="2" selection-end-line="324" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin/nstudio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
           <folding />
         </state>
       </provider>

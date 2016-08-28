@@ -136,6 +136,7 @@ router.post("/:id/edit", productUpload, function(req, res, next) {
 });
 
 router.get("/:id/edit/", function(req, res, next) {
+  var id = req.params.id;
   NstudioProduct.findById(id, function(error, product) {
     if (!error) {
       res.render('add_nstudio_product', { product : JSON.stringify(product), raw_product : product });

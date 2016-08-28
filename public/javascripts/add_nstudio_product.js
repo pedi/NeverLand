@@ -89,7 +89,7 @@ function initDom() {
       alert("please enter description in Chinese");
       return false;
     } else {
-      formData.append("description", description);
+      formData.append("description_cn", description);
     }
 
     var url = "/admin/nstudio_products/add/";

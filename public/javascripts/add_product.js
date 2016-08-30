@@ -7,7 +7,7 @@ $(function() {
 
 function initEditProductInfo() {
   if (window.previousProductInfo) {
-    var info = JSON.parse(previousProductInfo);
+    var info = previousProductInfo;
     $("#select-category option").each(function(index) {
       if ($(this).val() == info.category) {
         $("#select-category")[0].selectedIndex = index;

@@ -64,6 +64,7 @@ router.get("/add/", function(req, res, next) {
     .populate({ path: "subcategories" })
     .exec(function(err, categories) {
       // preprocess categories
+      categories = categories.filter(cat => !cat.deleted);
       for (var i = 0; i < categories.length; i++) {
         var category = categories[i];
         category.subcat = [];

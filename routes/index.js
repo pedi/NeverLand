@@ -21,7 +21,9 @@ module.exports = function(passport) {
       .populate({ path: "subcategories" })
       .exec(function(err, categories) {
         if (!err) {
-          res.locals.categories = categories;
+          res.locals.categories = categories.filter(
+            category => !category.deleted
+          );
           if (req.user) {
             res.locals.user = req.user;
           }

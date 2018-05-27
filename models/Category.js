@@ -2,14 +2,42 @@
  * Created by mohist on 8/23/15.
  */
 var mongoose = require("mongoose");
-var schema = new mongoose.Schema({
-  //_id : {type: mongoose.Types.ObjectId, index : true},
-  name : {type : String, unique : true},
-  subcategories : [{type: mongoose.Schema.Types.ObjectId, ref : "SubCategory", unique : true}]
-}, {
-  autoIndex : false
-});
+var schema = new mongoose.Schema(
+  {
+    //_id : {type: mongoose.Types.ObjectId, index : true},
+    name: { type: String, unique: true },
+    subcategories: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory", unique: true }
+    ],
+    deleted: { type: Boolean }
+  },
+  {
+    autoIndex: false
+  }
+);
 var model = mongoose.model("Category", schema);
+
+function deleteCategory(catName) {
+  Category.find().exec(function(err, categories) {
+    if (!err) {
+      const category = categories.find(cat => cat.name === catName);
+      if (!category) {
+        console.log("no category found");
+        return;
+      }
+      category.deleted = true;
+      category.save((error, category) => {
+        if (!error) {
+          console.log("category deleted successfully");
+        } else {
+          console.log("delete product failed", error);
+        }
+      });
+    } else {
+      console.log("error");
+    }
+  });
+}
 
 //function generateCategory() {
 //  var subCategories = [

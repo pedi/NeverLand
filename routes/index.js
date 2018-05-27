@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require("express");
 var SubCategory = require("../models/SubCategory");
 var Category = require("../models/Category");
 var Banner = require("../models/Banner");
@@ -11,24 +11,25 @@ var User = require("../models/User");
 var Intro = require("../models/Intro");
 var router = express.Router();
 var admin = require("./admin/index");
-var bCrypt = require('bcrypt-nodejs');
+var bCrypt = require("bcrypt-nodejs");
 var _ = require("underscore");
 
 module.exports = function(passport) {
   router.use(function(req, res, next) {
-    console.log(bCrypt.hashSync("7T2b%U^%"));
-    Category.find().populate({path : "subcategories"}).exec(function(err, categories) {
-      if (!err) {
-        res.locals.categories = categories;
-        console.log(req.user);
-        if (req.user) {
-          res.locals.user = req.user;
+    console.log("request path", req.path);
+    Category.find()
+      .populate({ path: "subcategories" })
+      .exec(function(err, categories) {
+        if (!err) {
+          res.locals.categories = categories;
+          if (req.user) {
+            res.locals.user = req.user;
+          }
+          next();
+        } else {
+          next(err);
         }
-        next();
-      } else {
-        next(err);
-      }
-    });
+      });
   });
 
   //router.get("/create_admin", function(req, res,next) {
@@ -57,66 +58,69 @@ module.exports = function(passport) {
 
   router.get("/logout/", function(req, res, next) {
     req.logout();
-    res.redirect('/');
+    res.redirect("/");
   });
 
-  router.post("/login/", passport.authenticate("login", {
-    successRedirect : "/",
-    failureRedirect : "/login/"
-  }));
+  router.post(
+    "/login/",
+    passport.authenticate("login", {
+      successRedirect: "/",
+      failureRedirect: "/login/"
+    })
+  );
 
   router.use("/admin/", admin);
 
   /* GET home page. */
-  router.get('/', function(req, res, next) {
+  router.get("/", function(req, res, next) {
     console.log(req.isAuthenticated());
     Banner.find().exec(function(error, banners) {
-      res.render('index', {banners : banners});
+      res.render("index", { banners: banners });
     });
   });
 
-  router.get('/contact/', function(req, res, next) {
-    Intro.findOne({type : "contact"}).exec(function(error, contact) {
-      res.render('contact', {contact : contact});
+  router.get("/contact/", function(req, res, next) {
+    Intro.findOne({ type: "contact" }).exec(function(error, contact) {
+      res.render("contact", { contact: contact });
     });
   });
 
-  router.get('/about/', function(req, res, next) {
-    Intro.findOne({type : "about"}).exec(function(error, about) {
-      res.render('about', {about : about});
+  router.get("/about/", function(req, res, next) {
+    Intro.findOne({ type: "about" }).exec(function(error, about) {
+      res.render("about", { about: about });
     });
   });
 
-  router.get('/download/', function(req, res, next) {
+  router.get("/download/", function(req, res, next) {
     Downloadable.find().exec(function(err, downloads) {
       if (err) {
         next(err);
       }
-      downloads = _.sortBy(downloads, 'name');
-      res.render("downloads", {downloads : downloads});
+      downloads = _.sortBy(downloads, "name");
+      res.render("downloads", { downloads: downloads });
     });
   });
 
-  router.get("/n_studio/:id/", function(req, res, next) {
-    var id = req.params.id;
-    NstudioProduct.findById(id, function(error, product) {
-      if (!error && product) {
-        res.render("nstudio_product", {product : product});
-      } else {
-        next(error);
-      }
-    })
-  });
+  // router.get("/n_studio/:id/", function(req, res, next) {
+  //   var id = req.params.id;
+  //   NstudioProduct.findById(id, function(error, product) {
+  //     if (!error && product) {
+  //       res.render("nstudio_product", { product: product });
+  //     } else {
+  //       next(error);
+  //     }
+  //   });
+  // });
 
-  router.get('/n_studio/', function(req, res, next) {
-    NstudioProduct.find().exec(function(err, products) {
-      if (err) {
-        next(err);
-      }
-      products = _.sortBy(products, 'name');
-      res.render("nstudio_products", {products : products});
-    });
-  });
+  // router.get('/n_studio/', function(req, res, next) {
+  //   NstudioProduct.find().exec(function(err, products) {
+  //     if (err) {
+  //       next(err);
+  //     }
+  //     products = _.sortBy(products, 'name');
+  //     res.render("nstudio_products", {products : products});
+  //   });
+  // });
 
   router.use(function(req, res, next) {
     if (req.isAuthenticated()) {
@@ -133,13 +137,16 @@ module.exports = function(passport) {
         // preprocess price groups
         var fabricGroup = [];
         var materialGroup = [];
-        for (var i=0; i<product.models.length; i++) {
+        for (var i = 0; i < product.models.length; i++) {
           var model = product.models[i];
           if (model.fabrics_type && model.fabrics_price.length > 0) {
             model.fabrics = [];
 
-            for (var j=0; j<model.fabrics_type.length; j++) {
-              model.fabrics.push({type : model.fabrics_type[j], price : model.fabrics_price[j]});
+            for (var j = 0; j < model.fabrics_type.length; j++) {
+              model.fabrics.push({
+                type: model.fabrics_type[j],
+                price: model.fabrics_price[j]
+              });
               if (model.fabrics_price[j] != -1) {
                 fabricGroup.push(model.fabrics_type[j]);
               }
@@ -149,8 +156,11 @@ module.exports = function(passport) {
           } else if (model.material_type && model.material_price.length > 0) {
             model.materials = [];
             materialGroup = [];
-            for (var j=0; j<model.material_type.length; j++) {
-              model.materials.push({type : model.material_type[j], price : model.material_price[j]});
+            for (var j = 0; j < model.material_type.length; j++) {
+              model.materials.push({
+                type: model.material_type[j],
+                price: model.material_price[j]
+              });
               if (model.material_price[j] != -1) {
                 materialGroup.push(model.material_type[j]);
               }
@@ -162,7 +172,9 @@ module.exports = function(passport) {
         }
         // if a product is in sofa, chair, bedheads category, then need to show all fabrics and leathers
         SubCategory.findById(product.subcategory, function(error, subcategory) {
-          if (['Sofas', 'Chairs', 'Bedheads'].indexOf(subcategory.name) !== -1) {
+          if (
+            ["Sofas", "Chairs", "Bedheads"].indexOf(subcategory.name) !== -1
+          ) {
             Fabric.find({}).exec(function(error, fabrics) {
               if (error) {
                 next(error);
@@ -170,82 +182,101 @@ module.exports = function(passport) {
               var fabricGroups = _.groupBy(fabrics, function(fabric) {
                 return fabric.type;
               });
-              res.render("product", {product : product, fabricGroups:fabricGroups});
-            })
+              res.render("product", {
+                product: product,
+                fabricGroups: fabricGroups
+              });
+            });
           } else if (fabricGroup.length) {
             Fabric.find({
-              price_group : { $in : fabricGroup}
+              price_group: { $in: fabricGroup }
             }).exec(function(error, fabrics) {
               if (!error) {
                 var fabricGroups = _.groupBy(fabrics, function(fabric) {
                   return fabric.type;
                 });
-                res.render("product", {product : product, fabricGroups:fabricGroups});
-              } else {next(error);}
-            })
-          } else if (materialGroup.length){
+                res.render("product", {
+                  product: product,
+                  fabricGroups: fabricGroups
+                });
+              } else {
+                next(error);
+              }
+            });
+          } else if (materialGroup.length) {
             Material.find({
-              price_group : { $in : materialGroup}
+              price_group: { $in: materialGroup }
             }).exec(function(error, materials) {
               if (!error) {
                 var materialGroups = _.groupBy(materials, function(material) {
                   return material.price_group;
                 });
-                res.render("product", {product : product, materialGroups:materialGroups});
-              } else {next(error);}
-            })
+                res.render("product", {
+                  product: product,
+                  materialGroups: materialGroups
+                });
+              } else {
+                next(error);
+              }
+            });
           } else {
-            res.render("product", {product : product});
+            res.render("product", { product: product });
           }
-        })
+        });
       } else {
         next(error);
       }
-    })
+    });
   });
 
   router.get("/search/", function(req, res, next) {
     var query = req.query.keyword;
     if (query) {
-      var re = new RegExp(query, 'i');
+      var re = new RegExp(query, "i");
       Product.find({
-        name : re,
+        name: re
       }).exec(function(err, products) {
         if (err) {
           next(err);
         } else {
-          products = _.sortBy(products, 'name');
-          res.render("category", {products : products});
+          products = _.sortBy(products, "name");
+          res.render("category", { products: products });
         }
-      })
+      });
     }
   });
 
-  router.get('/new_arrivals/', function(req, res, next) {
-    Product.find({new_arrival: true}).exec(function(err, products) {
+  router.get("/new_arrivals/", function(req, res, next) {
+    Product.find({ new_arrival: true }).exec(function(err, products) {
       if (err) {
         next(err);
       }
-      products = _.sortBy(products, 'name');
-      res.render("category", {products : products});
+      products = _.sortBy(products, "name");
+      res.render("category", { products: products });
     });
   });
 
   router.get("/category/:sub_category_name/", function(req, res, next) {
     var categoryName = req.params.sub_category_name;
     if (categoryName) {
-      SubCategory.findOne({name : categoryName}).exec(function(err, subCategory) {
+      SubCategory.findOne({ name: categoryName }).exec(function(
+        err,
+        subCategory
+      ) {
         if (err) {
-          next(new Error("category not found"))
+          next(new Error("category not found"));
         } else {
-          Product.find({subcategory : subCategory._id}).exec(function(err, products) {
-            products = _.sortBy(products, 'name');
-            res.render("category", {products : products});
+          Product.find({ subcategory: subCategory._id }).exec(function(
+            err,
+            products
+          ) {
+            products = _.sortBy(products, "name");
+            res.render("category", { products: products });
           });
         }
-      })
+      });
     } else {
-      next(new Error("invalid category name"))
+      next(new Error("invalid category name"));
     }
   });
   return router;

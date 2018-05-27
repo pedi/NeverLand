@@ -73,14 +73,18 @@ body {
   .product-list a > div {
     padding-left: 5px;
     padding-right: 0; }
-  .product-list a, .product-list a:hover, .product-list a:active, .product-list a:link, .product-list a:visited {
+  .product-list a,
+  .product-list a:hover,
+  .product-list a:active,
+  .product-list a:link,
+  .product-list a:visited {
     color: #333333; }
   .product-list .product-name {
     margin-top: 5px; }
 
-.nav__new-arrival-link {
+.nav__new-small-lot {
   color: red !important; }
-  .nav__new-arrival-link > b {
+  .nav__new-small-lot > b {
     border-left-color: red; }
 
 .nav.navbar-nav.navbar--user {

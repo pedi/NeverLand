@@ -252,6 +252,17 @@ module.exports = function(passport) {
         next(err);
       }
       products = _.sortBy(products, "name");
+      products = products.filter(product => !product.small_lot);
+      res.render("category", { products: products });
+    });
+  });
+
+  router.get("/small_lot/", function(req, res, next) {
+    Product.find({ small_lot: true }).exec(function(err, products) {
+      if (err) {
+        next(err);
+      }
+      products = _.sortBy(products, "name");
       res.render("category", { products: products });
     });
   });
@@ -271,6 +282,7 @@ module.exports = function(passport) {
             products
           ) {
             products = _.sortBy(products, "name");
+            products = products.filter(product => !product.small_lot);
             res.render("category", { products: products });
           });
         }

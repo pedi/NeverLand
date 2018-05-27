@@ -1,3 +1,47 @@
+.navbar-default {
+  box-shadow: none;
+  background-color: white;
+  background-image: none; }
+  .navbar-default .navbar-brand {
+    padding: 0;
+    display: inline-block;
+    margin-right: 130px; }
+    .navbar-default .navbar-brand img {
+      height: 100%; }
 
+.nav .open > a:hover,
+a {
+  background-color: white !important;
+  background-image: none !important; }
 
-/*# sourceMappingURL=layout.css.map */
+.dropdown-menu a,
+.dropdown-menu a:hover {
+  margin-top: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important; }
+
+.category-dropdown {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  background-image: none !important;
+  border: none !important; }
+
+.navbar-form input {
+  border-radius: 0; }
+
+@media (min-width: 767px) {
+  .caret-right {
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid #777777; } }
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background: none; }
+
+.navbar-instagram {
+  position: relative;
+  top: -2px; }
+  .navbar-instagram img {
+    width: 20px; }

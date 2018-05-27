@@ -8,12 +8,19 @@
     margin-right: 130px; }
     .navbar-default .navbar-brand img {
       height: 100%; }
+  .navbar-default .navbar-instagram {
+    position: relative;
+    top: -2px; }
+    .navbar-default .navbar-instagram img {
+      width: 20px; }
 
-.nav .open > a:hover, a {
+.nav .open > a:hover,
+a {
   background-color: white !important;
   background-image: none !important; }
 
-.dropdown-menu a, .dropdown-menu a:hover {
+.dropdown-menu a,
+.dropdown-menu a:hover {
   margin-top: 0 !important;
   box-shadow: none !important;
   -webkit-box-shadow: none !important; }
@@ -34,7 +41,8 @@
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
     border-left: 4px solid #777777; } }
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
   background: none; }
 
 .banner-images .col-xs-4 img {
@@ -83,5 +91,3 @@ body {
 
 .navbar--admin {
   font-size: 12px; }
-
-/*# sourceMappingURL=style.css.map */

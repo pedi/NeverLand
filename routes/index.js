@@ -122,13 +122,13 @@ module.exports = function(passport) {
   //   });
   // });
 
-  router.use(function(req, res, next) {
-    if (req.isAuthenticated()) {
-      next();
-    } else {
-      res.redirect("/login/");
-    }
-  });
+  // router.use(function(req, res, next) {
+  //   if (req.isAuthenticated()) {
+  //     next();
+  //   } else {
+  //     res.redirect("/login/");
+  //   }
+  // });
 
   router.get("/products/:id/", function(req, res, next) {
     var id = req.params.id;

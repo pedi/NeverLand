@@ -21,9 +21,15 @@ module.exports = function(passport) {
       .populate({ path: "subcategories" })
       .exec(function(err, categories) {
         if (!err) {
-          res.locals.categories = categories.filter(
-            category => !category.deleted
-          );
+          res.locals.categories = categories
+            .filter(category => !category.deleted)
+            .map(category => {
+              return Object.assign(category, {
+                subcategories: category.subcategories.filter(
+                  sub => !sub.deleted
+                )
+              });
+            });
           if (req.user) {
             res.locals.user = req.user;
           }
@@ -269,7 +275,29 @@ module.exports = function(passport) {
     });
   });
 
-  router.get("/category/:sub_category_name/", function(req, res, next) {
+  router.get("/category/:category_name/", function(req, res, next) {
+    var categoryName = req.params.category_name;
+    if (categoryName) {
+      Category.findOne({ name: categoryName }).exec(function(err, category) {
+        if (err) {
+          next(new Error("category not found"));
+        } else {
+          Product.find({ category: category._id }).exec(function(
+            err,
+            products
+          ) {
+            products = _.sortBy(products, "name");
+            products = products.filter(product => !product.small_lot);
+            res.render("category", { products: products });
+          });
+        }
+      });
+    } else {
+      next(new Error("invalid category name"));
+    }
+  });
+
+  router.get("/subcategory/:sub_category_name/", function(req, res, next) {
     var categoryName = req.params.sub_category_name;
     if (categoryName) {
       SubCategory.findOne({ name: categoryName }).exec(function(

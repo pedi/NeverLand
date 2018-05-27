@@ -37,15 +37,22 @@
                             <a class="nav__new-arrival-link" href="/new_arrivals/" >New Arrivals <b class="caret caret-right"></b></a>
                         </li>
                         {{#each categories}}
+                            {{#if this.subcategories.length}}
                             <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{this.name}} <b class="caret caret-right"></b></a>
                                 <ul class="dropdown-menu">
                                     {{#each this.subcategories}}
-                                        <li><a href="/category/{{this.name}}/">{{this.name}}</a></li>
+                                        <li><a href="/subcategory/{{this.name}}/">{{this.name}}</a></li>
                                     {{/each}}
 
                                 </ul>
                             </li>
+                            {{else}}
+                            <li>
+                                <a href="/category/{{this.name}}/">{{this.name}} <b class="caret caret-right"></b></a>
+                            </li>
+                            {{/if}}
+
                         {{/each}}
 
                     </ul>

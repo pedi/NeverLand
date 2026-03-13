@@ -34,11 +34,9 @@ function PasswordDialog({ user }: { user: UserWithUid }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline" size="xs">
-          <KeyRound className="mr-1 size-3" />
-          Password
-        </Button>
+      <DialogTrigger render={<Button variant="outline" size="xs" />}>
+        <KeyRound className="mr-1 size-3" />
+        Password
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -86,11 +84,9 @@ function AddUserForm() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button size="sm">
-          <Plus className="mr-1 size-3.5" />
-          Add User
-        </Button>
+      <DialogTrigger render={<Button size="sm" />}>
+        <Plus className="mr-1 size-3.5" />
+        Add User
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

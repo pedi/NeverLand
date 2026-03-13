@@ -26,11 +26,9 @@ export default async function MaterialsPage() {
             {materials.length} materials across {Object.keys(grouped).length} groups
           </p>
         </div>
-        <Button asChild size="sm">
-          <Link href="/admin/materials/add">
-            <Plus className="mr-1 size-3.5" />
-            Add Material
-          </Link>
+        <Button render={<Link href="/admin/materials/add" />} size="sm">
+          <Plus className="mr-1 size-3.5" />
+          Add Material
         </Button>
       </div>
       <MaterialList grouped={grouped} />

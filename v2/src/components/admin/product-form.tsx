@@ -76,8 +76,8 @@ export function ProductForm({ product, categories }: ProductFormProps) {
   const selectedCategory = categories.find((c) => c.id === category);
   const subcategories = selectedCategory?.subcategories ?? [];
 
-  function handleCategoryChange(value: string) {
-    setCategory(value);
+  function handleCategoryChange(value: string | null) {
+    setCategory(value ?? "");
     setSubcategory("");
   }
 
@@ -322,7 +322,7 @@ export function ProductForm({ product, categories }: ProductFormProps) {
 
             <div className="space-y-1.5">
               <Label>Subcategory</Label>
-              <Select value={subcategory} onValueChange={setSubcategory}>
+              <Select value={subcategory} onValueChange={(v) => setSubcategory(v ?? "")}>
                 <SelectTrigger className="w-full" disabled={pending || !category}>
                   <SelectValue placeholder="Select subcategory" />
                 </SelectTrigger>

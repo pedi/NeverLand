@@ -26,11 +26,9 @@ export default async function FabricsPage() {
             {fabrics.length} fabrics across {Object.keys(grouped).length} types
           </p>
         </div>
-        <Button asChild size="sm">
-          <Link href="/admin/fabrics/add">
-            <Plus className="mr-1 size-3.5" />
-            Add Fabric
-          </Link>
+        <Button render={<Link href="/admin/fabrics/add" />} size="sm">
+          <Plus className="mr-1 size-3.5" />
+          Add Fabric
         </Button>
       </div>
       <FabricList grouped={grouped} />

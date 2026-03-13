@@ -16,11 +16,9 @@ export default async function DownloadsPage() {
             {downloadables.length} downloadable{downloadables.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Button asChild size="sm">
-          <Link href="/admin/downloads/add">
-            <Plus className="mr-1 size-3.5" />
-            Add Download
-          </Link>
+        <Button render={<Link href="/admin/downloads/add" />} size="sm">
+          <Plus className="mr-1 size-3.5" />
+          Add Download
         </Button>
       </div>
       <DownloadList items={downloadables} />

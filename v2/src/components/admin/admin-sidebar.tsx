@@ -2,7 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ArrowLeft, type LucideIcon } from "lucide-react";
+import {
+  Menu,
+  ArrowLeft,
+  Package,
+  FolderTree,
+  Paintbrush,
+  Layers,
+  Image,
+  Users,
+  Download,
+  Mail,
+  Info,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,13 +25,19 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-interface NavItem {
-  href: string;
-  label: string;
-  icon: LucideIcon;
-}
+const navItems = [
+  { href: "/admin/products", label: "Products", icon: Package },
+  { href: "/admin/categories", label: "Categories", icon: FolderTree },
+  { href: "/admin/fabrics", label: "Fabrics", icon: Paintbrush },
+  { href: "/admin/materials", label: "Materials", icon: Layers },
+  { href: "/admin/banners", label: "Banners", icon: Image },
+  { href: "/admin/users", label: "Users", icon: Users },
+  { href: "/admin/downloads", label: "Downloads", icon: Download },
+  { href: "/admin/contact", label: "Contact", icon: Mail },
+  { href: "/admin/about", label: "About", icon: Info },
+];
 
-export function AdminSidebar({ navItems }: { navItems: NavItem[] }) {
+export function AdminSidebar() {
   const pathname = usePathname();
 
   return (

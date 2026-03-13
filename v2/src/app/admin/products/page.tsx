@@ -19,11 +19,9 @@ export default async function ProductsPage() {
             {products.length} {products.length === 1 ? "product" : "products"}
           </p>
         </div>
-        <Button asChild size="sm">
-          <Link href="/admin/products/add">
-            <Plus className="mr-1.5 size-3.5" />
-            Add New
-          </Link>
+        <Button render={<Link href="/admin/products/add" />} size="sm">
+          <Plus className="mr-1.5 size-3.5" />
+          Add New
         </Button>
       </div>
 
@@ -70,10 +68,8 @@ export default async function ProductsPage() {
               <div className="flex items-center justify-between gap-2 px-3 py-2.5">
                 <p className="truncate text-sm font-medium">{product.name}</p>
                 <div className="flex shrink-0 gap-1">
-                  <Button variant="ghost" size="icon-xs" asChild>
-                    <Link href={`/admin/products/${product.id}/edit`}>
-                      <Pencil />
-                    </Link>
+                  <Button variant="ghost" size="icon-xs" render={<Link href={`/admin/products/${product.id}/edit`} />}>
+                    <Pencil />
                   </Button>
                   <form
                     action={deleteProduct.bind(null, product.id)}

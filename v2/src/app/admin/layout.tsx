@@ -68,7 +68,7 @@ export default async function AdminLayout({
 
       <div className="flex flex-1 flex-col">
         <header className="flex h-12 items-center border-b bg-background px-4 lg:hidden">
-          <AdminSidebar navItems={navItems} />
+          <AdminSidebar />
           <span className="ml-3 text-sm font-semibold tracking-tight">
             NEVERLAND Admin
           </span>

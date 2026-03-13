@@ -17,10 +17,10 @@ export default async function ProductPage({
   if (!product) notFound();
 
   const fabricPriceGroups = [
-    ...new Set(product.models.map((m) => m.fabricsType).filter(Boolean)),
+    ...new Set(product.models.flatMap((m) => m.fabricsType).filter(Boolean)),
   ];
   const materialPriceGroups = [
-    ...new Set(product.models.map((m) => m.materialType).filter(Boolean)),
+    ...new Set(product.models.flatMap((m) => m.materialType).filter(Boolean)),
   ];
 
   const [fabrics, materials] = await Promise.all([

@@ -1,0 +1,82 @@
+<div class="container admin-categories">
+    <h1>Categories</h1>
+    <div class="panel panel-default" style="margin-top:20px">
+        <div class="panel-heading"><strong>Add New Category</strong></div>
+        <div class="panel-body">
+            <form class="form-inline" id="form-add-category">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="Internal name (e.g. zhizhe)" required>
+                </div>
+                <div class="form-group" style="margin-left:10px">
+                    <input type="text" class="form-control" name="displayName" placeholder="Display name (optional)">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-left:10px">Add Category</button>
+            </form>
+        </div>
+    </div>
+
+    {{#each allCategories}}
+    <div class="panel {{#if this.deleted}}panel-default{{else}}panel-success{{/if}} category-panel" data-category-id="{{this._id}}">
+        <div class="panel-heading">
+            <div class="row category-display">
+                <div class="col-xs-8">
+                    <strong class="cat-name">{{this.name}}</strong>
+                    {{#if this.displayName}}<span class="text-muted"> &mdash; displays as: <em class="cat-display-name">{{this.displayName}}</em></span>{{/if}}
+                    {{#if this.deleted}}<span class="label label-danger" style="margin-left:8px">Hidden</span>{{/if}}
+                </div>
+                <div class="col-xs-4 text-right">
+                    <button class="btn btn-xs btn-info btn-edit-category">Rename</button>
+                    <button class="btn btn-xs {{#if this.deleted}}btn-success{{else}}btn-warning{{/if}} btn-toggle-category">
+                        {{#if this.deleted}}Restore{{else}}Hide{{/if}}
+                    </button>
+                </div>
+            </div>
+            <div class="row category-edit-form" style="display:none;margin-top:8px">
+                <div class="col-xs-12">
+                    <form class="form-inline form-rename-category">
+                        <div class="form-group">
+                            <label class="sr-only">Internal name</label>
+                            <input type="text" class="form-control input-sm input-cat-name" value="{{this.name}}" placeholder="Internal name">
+                        </div>
+                        <div class="form-group" style="margin-left:8px">
+                            <label class="sr-only">Display name</label>
+                            <input type="text" class="form-control input-sm input-cat-display" value="{{this.displayName}}" placeholder="Display name">
+                        </div>
+                        <button type="submit" class="btn btn-xs btn-success" style="margin-left:8px">Save</button>
+                        <button type="button" class="btn btn-xs btn-default btn-cancel-edit" style="margin-left:4px">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed" style="margin-bottom:10px">
+                <thead><tr><th>Subcategory</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody>
+                {{#each this.subcategories}}
+                    <tr class="subcategory-row" data-sub-id="{{this._id}}">
+                        <td class="sub-name">{{this.name}}</td>
+                        <td>
+                            {{#if this.deleted}}<span class="label label-danger">Hidden</span>{{else}}<span class="label label-success">Active</span>{{/if}}
+                        </td>
+                        <td>
+                            <button class="btn btn-xs btn-info btn-rename-sub">Rename</button>
+                            <button class="btn btn-xs {{#if this.deleted}}btn-success{{else}}btn-warning{{/if}} btn-toggle-sub">
+                                {{#if this.deleted}}Restore{{else}}Hide{{/if}}
+                            </button>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <form class="form-inline form-add-sub">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" name="subName" placeholder="New subcategory name">
+                </div>
+                <button type="submit" class="btn btn-sm btn-default" style="margin-left:5px">Add Subcategory</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<script type="text/javascript" src="/javascripts/admin_categories.js"></script>

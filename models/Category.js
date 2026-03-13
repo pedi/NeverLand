@@ -6,6 +6,7 @@ var schema = new mongoose.Schema(
   {
     //_id : {type: mongoose.Types.ObjectId, index : true},
     name: { type: String, unique: true },
+    displayName: { type: String },
     subcategories: [
       { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory", unique: true }
     ],

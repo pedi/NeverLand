@@ -14,12 +14,12 @@ var admin = require("./admin/index");
 var bCrypt = require("bcrypt-nodejs");
 var _ = require("underscore");
 
-module.exports = function(passport) {
-  router.use(function(req, res, next) {
+module.exports = function (passport) {
+  router.use(function (req, res, next) {
     console.log("request path", req.path);
     Category.find()
       .populate({ path: "subcategories" })
-      .exec(function(err, categories) {
+      .exec(function (err, categories) {
         if (!err) {
           res.locals.categories = categories
             .filter(category => !category.deleted)
@@ -55,7 +55,7 @@ module.exports = function(passport) {
   //  })
   //});
 
-  router.get("/login/", function(req, res, next) {
+  router.get("/login/", function (req, res, next) {
     console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
       res.redirect("/");
@@ -64,7 +64,7 @@ module.exports = function(passport) {
     }
   });
 
-  router.get("/logout/", function(req, res, next) {
+  router.get("/logout/", function (req, res, next) {
     req.logout();
     res.redirect("/");
   });
@@ -80,27 +80,27 @@ module.exports = function(passport) {
   router.use("/admin/", admin);
 
   /* GET home page. */
-  router.get("/", function(req, res, next) {
+  router.get("/", function (req, res, next) {
     console.log(req.isAuthenticated());
-    Banner.find().exec(function(error, banners) {
+    Banner.find().exec(function (error, banners) {
       res.render("index", { banners: banners });
     });
   });
 
-  router.get("/contact/", function(req, res, next) {
-    Intro.findOne({ type: "contact" }).exec(function(error, contact) {
+  router.get("/contact/", function (req, res, next) {
+    Intro.findOne({ type: "contact" }).exec(function (error, contact) {
       res.render("contact", { contact: contact });
     });
   });
 
-  router.get("/about/", function(req, res, next) {
-    Intro.findOne({ type: "about" }).exec(function(error, about) {
+  router.get("/about/", function (req, res, next) {
+    Intro.findOne({ type: "about" }).exec(function (error, about) {
       res.render("about", { about: about });
     });
   });
 
-  router.get("/download/", function(req, res, next) {
-    Downloadable.find().exec(function(err, downloads) {
+  router.get("/download/", function (req, res, next) {
+    Downloadable.find().exec(function (err, downloads) {
       if (err) {
         next(err);
       }
@@ -138,9 +138,9 @@ module.exports = function(passport) {
   //   }
   // });
 
-  router.get("/products/:id/", function(req, res, next) {
+  router.get("/products/:id/", function (req, res, next) {
     var id = req.params.id;
-    Product.findById(id, function(error, product) {
+    Product.findById(id, function (error, product) {
       if (!error && product) {
         // preprocess price groups
         var fabricGroup = [];
@@ -179,15 +179,15 @@ module.exports = function(passport) {
           }
         }
         // if a product is in sofa, chair, bedheads category, then need to show all fabrics and leathers
-        SubCategory.findById(product.subcategory, function(error, subcategory) {
+        SubCategory.findById(product.subcategory, function (error, subcategory) {
           if (
             ["Sofas", "Chairs", "Bedheads"].indexOf(subcategory.name) !== -1
           ) {
-            Fabric.find({}).exec(function(error, fabrics) {
+            Fabric.find({}).exec(function (error, fabrics) {
               if (error) {
                 next(error);
               }
-              var fabricGroups = _.groupBy(fabrics, function(fabric) {
+              var fabricGroups = _.groupBy(fabrics, function (fabric) {
                 return fabric.type;
               });
               res.render("product", {
@@ -198,9 +198,9 @@ module.exports = function(passport) {
           } else if (fabricGroup.length) {
             Fabric.find({
               price_group: { $in: fabricGroup }
-            }).exec(function(error, fabrics) {
+            }).exec(function (error, fabrics) {
               if (!error) {
-                var fabricGroups = _.groupBy(fabrics, function(fabric) {
+                var fabricGroups = _.groupBy(fabrics, function (fabric) {
                   return fabric.type;
                 });
                 res.render("product", {
@@ -214,9 +214,9 @@ module.exports = function(passport) {
           } else if (materialGroup.length) {
             Material.find({
               price_group: { $in: materialGroup }
-            }).exec(function(error, materials) {
+            }).exec(function (error, materials) {
               if (!error) {
-                var materialGroups = _.groupBy(materials, function(material) {
+                var materialGroups = _.groupBy(materials, function (material) {
                   return material.price_group;
                 });
                 res.render("product", {
@@ -237,13 +237,13 @@ module.exports = function(passport) {
     });
   });
 
-  router.get("/search/", function(req, res, next) {
+  router.get("/search/", function (req, res, next) {
     var query = req.query.keyword;
     if (query) {
       var re = new RegExp(query, "i");
       Product.find({
         name: re
-      }).exec(function(err, products) {
+      }).exec(function (err, products) {
         if (err) {
           next(err);
         } else {
@@ -254,8 +254,8 @@ module.exports = function(passport) {
     }
   });
 
-  router.get("/new_arrivals/", function(req, res, next) {
-    Product.find({ new_arrival: true }).exec(function(err, products) {
+  router.get("/new_arrivals/", function (req, res, next) {
+    Product.find({ new_arrival: true }).exec(function (err, products) {
       if (err) {
         next(err);
       }
@@ -265,8 +265,8 @@ module.exports = function(passport) {
     });
   });
 
-  router.get("/small_lot/", function(req, res, next) {
-    Product.find({ small_lot: true }).exec(function(err, products) {
+  router.get("/small_lot/", function (req, res, next) {
+    Product.find({ small_lot: true }).exec(function (err, products) {
       if (err) {
         next(err);
       }
@@ -275,14 +275,14 @@ module.exports = function(passport) {
     });
   });
 
-  router.get("/category/:category_name/", function(req, res, next) {
+  router.get("/category/:category_name/", function (req, res, next) {
     var categoryName = req.params.category_name;
     if (categoryName) {
-      Category.findOne({ name: categoryName }).exec(function(err, category) {
-        if (err) {
+      Category.findOne({ name: categoryName }).exec(function (err, category) {
+        if (err || category == null) {
           next(new Error("category not found"));
         } else {
-          Product.find({ category: category._id }).exec(function(
+          Product.find({ category: category._id }).exec(function (
             err,
             products
           ) {
@@ -297,17 +297,22 @@ module.exports = function(passport) {
     }
   });
 
-  router.get("/subcategory/:sub_category_name/", function(req, res, next) {
+  router.get("/subcategory/:sub_category_name/", function (req, res, next) {
     var categoryName = req.params.sub_category_name;
     if (categoryName) {
-      SubCategory.findOne({ name: categoryName }).exec(function(
+      SubCategory.findOne({ name: categoryName }).exec(function (
         err,
         subCategory
       ) {
         if (err) {
           next(new Error("category not found"));
         } else {
-          Product.find({ subcategory: subCategory._id }).exec(function(
+          console.log(subCategory);
+          if (subCategory == null) {
+            next(new Error("subcategory not found"));
+            return;
+          }
+          Product.find({ subcategory: subCategory._id }).exec(function (
             err,
             products
           ) {

@@ -14,6 +14,7 @@ var contact = require("./contact");
 var about = require("./about");
 var users = require("./users");
 var download = require("./download");
+var category = require("./category");
 // var nstudio = require("./nstudio");
 
 router.use(function(req, res, next) {
@@ -37,5 +38,6 @@ router.use("/contact/", contact);
 router.use("/about/", about);
 router.use("/users/", users);
 router.use("/downloads/", download);
+router.use("/categories/", category);
 // router.use("/nstudio_products/", nstudio);
 module.exports = router;
